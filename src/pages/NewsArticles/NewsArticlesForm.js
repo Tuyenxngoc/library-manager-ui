@@ -208,7 +208,7 @@ function NewsArticlesForm() {
                             onChange={handleUploadChange}
                             customRequest={() => false}
                         >
-                            <Button icon={<MdOutlineFileUpload />}>Chọn hình ảnh</Button>
+                            <Button icon={<MdOutlineFileUpload />}>Chọn ảnh bìa</Button>
                         </Upload>
                     </div>
 
