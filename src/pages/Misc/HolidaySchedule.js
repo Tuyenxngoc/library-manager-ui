@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { message } from 'antd';
 import { Parallax } from 'react-parallax';
 import { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
@@ -13,8 +12,6 @@ function HolidaySchedule() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
-
-    const [messageApi, contextHolder] = message.useMessage();
 
     const items = [
         {

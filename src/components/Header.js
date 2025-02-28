@@ -4,7 +4,7 @@ import { IoIosLogOut } from 'react-icons/io';
 import { FaUser, FaRegUser } from 'react-icons/fa6';
 import { MdMailOutline, MdHelpOutline } from 'react-icons/md';
 import { FaRegEdit, FaHistory, FaAngleDown } from 'react-icons/fa';
-import { Dropdown, Space, Input, Select } from 'antd';
+import { Dropdown, Space, Input, Select, Flex } from 'antd';
 import useAuth from '~/hooks/useAuth';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import queryString from 'query-string';
@@ -95,14 +95,18 @@ function Header() {
                             <ul className={cx('list')}>
                                 <li>
                                     <Link to="/report">
-                                        <MdMailOutline />
-                                        Liên hệ
+                                        <Flex align="center">
+                                            <MdMailOutline />
+                                            Liên hệ
+                                        </Flex>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="/">
-                                        <MdHelpOutline />
-                                        Trợ giúp
+                                        <Flex align="center">
+                                            <MdHelpOutline />
+                                            Trợ giúp
+                                        </Flex>
                                     </Link>
                                 </li>
                             </ul>

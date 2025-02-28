@@ -144,7 +144,15 @@ function BorrowBook() {
                 URL.revokeObjectURL(url);
             }
         } catch (error) {
-            const errorMessage = error.response?.data?.message || 'Có lỗi xảy ra khi xuất dữ liệu.';
+            const defaultErrorMessage = 'Có lỗi xảy ra khi xuất dữ liệu.';
+            let errorMessage = defaultErrorMessage;
+
+            if (error.response?.data) {
+                try {
+                    const decodedMessage = new TextDecoder('utf-8').decode(error.response.data);
+                    errorMessage = JSON.parse(decodedMessage)?.message || defaultErrorMessage;
+                } catch {}
+            }
             messageApi.error(errorMessage);
         } finally {
             setIsLoading(false);
@@ -169,7 +177,15 @@ function BorrowBook() {
                 URL.revokeObjectURL(url);
             }
         } catch (error) {
-            const errorMessage = error.response?.data?.message || 'Có lỗi xảy ra khi xuất dữ liệu.';
+            const defaultErrorMessage = 'Có lỗi xảy ra khi xuất dữ liệu.';
+            let errorMessage = defaultErrorMessage;
+
+            if (error.response?.data) {
+                try {
+                    const decodedMessage = new TextDecoder('utf-8').decode(error.response.data);
+                    errorMessage = JSON.parse(decodedMessage)?.message || defaultErrorMessage;
+                } catch {}
+            }
             messageApi.error(errorMessage);
         } finally {
             setIsLoading(false);
@@ -190,7 +206,15 @@ function BorrowBook() {
                 URL.revokeObjectURL(url);
             }
         } catch (error) {
-            const errorMessage = error.response?.data?.message || 'Có lỗi xảy ra khi xuất dữ liệu.';
+            const defaultErrorMessage = 'Có lỗi xảy ra khi xuất dữ liệu.';
+            let errorMessage = defaultErrorMessage;
+
+            if (error.response?.data) {
+                try {
+                    const decodedMessage = new TextDecoder('utf-8').decode(error.response.data);
+                    errorMessage = JSON.parse(decodedMessage)?.message || defaultErrorMessage;
+                } catch {}
+            }
             messageApi.error(errorMessage);
         } finally {
             setIsLoading(false);

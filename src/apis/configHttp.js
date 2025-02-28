@@ -6,6 +6,7 @@ const httpRequest = axios.create({
     baseURL: API_URL,
     headers: {
         'Content-Type': 'application/json',
+        'Accept-Language': 'vi',
     },
 });
 
@@ -15,6 +16,7 @@ export const axiosPrivate = axios.create({
     baseURL: API_URL,
     headers: {
         'Content-Type': 'application/json',
+        'Accept-Language': 'vi',
     },
 });
 

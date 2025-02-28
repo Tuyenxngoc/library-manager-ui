@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import queryString from 'query-string';
 import dayjs from 'dayjs';
-import { Button, Input, Space, Table } from 'antd';
+import { Button, Input, message, Space, Table } from 'antd';
 import { Parallax } from 'react-parallax';
 import { FaSearch } from 'react-icons/fa';
 import { backgrounds } from '~/assets';
@@ -22,12 +22,16 @@ function BorrowedItems() {
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
 
+    const [messageApi, contextHolder] = message.useMessage();
+
     const handleDelete = async () => {
         try {
             const response = await removeFromCart(selectedRowKeys);
             if (response.status === 200) {
                 setEntityData((prev) => prev.filter((item) => !selectedRowKeys.includes(item.id)));
                 setSelectedRowKeys([]);
+
+                messageApi.success(response.data.data.message);
             }
         } catch (error) {}
     };
@@ -153,6 +157,8 @@ function BorrowedItems() {
 
     return (
         <>
+            {contextHolder}
+
             <Parallax bgImage={backgrounds.bgparallax7} strength={500}>
                 <div className="innerbanner">
                     <div className="container">
