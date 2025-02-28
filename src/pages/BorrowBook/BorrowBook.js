@@ -130,7 +130,6 @@ function BorrowBook() {
         setIsLoading(true);
         try {
             const response = await printBorrowReceipts({
-                schoolName: 'Trường Đại học Công nghiệp Hà Nội',
                 borrowIds: selectedRowKeys,
             });
 
@@ -162,11 +161,7 @@ function BorrowBook() {
     const handlePrintBlankTemplate = async () => {
         setIsLoading(true);
         try {
-            const response = await printBorrowReceipts({
-                schoolName: 'Trường Đại học Công nghiệp Hà Nội',
-                borrowIds: [],
-            });
-
+            const response = await printBorrowReceipts();
             if (response.status === 200) {
                 const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
                 const url = URL.createObjectURL(pdfBlob);
