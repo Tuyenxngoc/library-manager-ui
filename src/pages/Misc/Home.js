@@ -67,6 +67,7 @@ function Home() {
                 filters={{
                     sortBy: 'title',
                     sortType: 'DESC',
+                    filterType: 'most_borrowed',
                 }}
                 title={<h2 className="mb-0">Sách được mượn nhiều nhất</h2>}
                 subtitle={'Lựa chọn của mọi người'}
@@ -101,6 +102,7 @@ function Home() {
                 filters={{
                     sortBy: 'id',
                     sortType: 'DESC',
+                    filterType: 'new_releases',
                 }}
                 title={<h2 className="mb-0">Sách mới phát hành</h2>}
                 subtitle={'Sách mới'}
