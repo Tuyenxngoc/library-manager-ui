@@ -9,7 +9,8 @@ import { addToCart } from '~/services/cartService';
 import useAuth from '~/hooks/useAuth';
 
 const cx = classNames.bind(styles);
-function Product({ className, data, messageApi }) {
+
+function Book({ className, data, messageApi }) {
     const location = useLocation();
     const navigate = useNavigate();
     const { isAuthenticated } = useAuth();
@@ -69,4 +70,4 @@ function Product({ className, data, messageApi }) {
     );
 }
 
-export default Product;
+export default Book;

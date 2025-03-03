@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import classNames from 'classnames/bind';
 import styles from '~/styles/PostList.module.scss';
-import Post from './Post';
+import NewsArticle from './NewsArticle';
 import SectionHeader from './SectionHeader';
 import { getNewsArticlesForUser } from '~/services/newsArticlesService';
 
 const cx = classNames.bind(styles);
 
-function PostList() {
+function NewsArticleList() {
     const sliderRef = useRef(null);
     const navigate = useNavigate();
 
@@ -80,7 +80,7 @@ function PostList() {
                         ) : (
                             <Slider ref={sliderRef} {...settings}>
                                 {entityData.map((data, index) => (
-                                    <Post className="mx-2 my-1" key={index} data={data} />
+                                    <NewsArticle className="mx-2 my-1" key={index} data={data} />
                                 ))}
                             </Slider>
                         )}
@@ -91,4 +91,4 @@ function PostList() {
     );
 }
 
-export default PostList;
+export default NewsArticleList;

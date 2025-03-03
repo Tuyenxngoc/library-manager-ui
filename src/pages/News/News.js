@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { Parallax } from 'react-parallax';
 import { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
-import Post from '~/components/Post';
+import NewsArticle from '~/components/NewsArticle';
 import SectionHeader from '~/components/SectionHeader';
 import { getNewsArticlesForUser } from '~/services/newsArticlesService';
 
@@ -79,7 +79,12 @@ function News() {
                             <div className="row">
                                 {entityData.map((data, index) => (
                                     <div className="col-12">
-                                        <Post className="mx-2 my-1" key={index} data={data} layout="horizontal" />
+                                        <NewsArticle
+                                            className="mx-2 my-1"
+                                            key={index}
+                                            data={data}
+                                            layout="horizontal"
+                                        />
                                     </div>
                                 ))}
                             </div>

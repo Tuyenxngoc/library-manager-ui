@@ -9,7 +9,7 @@ import images from '~/assets';
 
 const cx = classNames.bind(styles);
 
-function Post({ className, data, layout = 'vertical', contentVisible = true }) {
+function NewsArticle({ className, data, layout = 'vertical', contentVisible = true }) {
     const isNew = () => {
         const currentDate = dayjs();
         const postDate = dayjs(data.createdDate);
@@ -63,4 +63,4 @@ function Post({ className, data, layout = 'vertical', contentVisible = true }) {
     );
 }
 
-export default Post;
+export default NewsArticle;

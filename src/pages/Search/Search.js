@@ -3,7 +3,7 @@ import queryString from 'query-string';
 import { Parallax } from 'react-parallax';
 import { Collapse, message, Pagination, Tabs } from 'antd';
 import { backgrounds } from '~/assets';
-import Product from '~/components/Product';
+import Book from '~/components/Book';
 import Breadcrumb from '~/components/Breadcrumb';
 import SectionHeader from '~/components/SectionHeader';
 import BasicSearchForm from '~/components/BasicSearchForm';
@@ -189,7 +189,7 @@ function Search() {
                         <>
                             {entityData.length > 0 ? (
                                 entityData.map((entity, index) => (
-                                    <Product
+                                    <Book
                                         key={index}
                                         className={'col-2 mx-2 my-1'}
                                         data={entity}

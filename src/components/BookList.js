@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import Product from './Product';
+import Book from './Book';
 import SectionHeader from './SectionHeader';
 
 import classNames from 'classnames/bind';
@@ -15,7 +15,7 @@ import queryString from 'query-string';
 
 const cx = classNames.bind(styles);
 
-function ProductList({ filters, title, subtitle, messageApi }) {
+function BookList({ filters, title, subtitle, messageApi }) {
     const sliderRef = useRef(null);
     const navigate = useNavigate();
 
@@ -87,7 +87,7 @@ function ProductList({ filters, title, subtitle, messageApi }) {
                         ) : (
                             <Slider ref={sliderRef} {...settings}>
                                 {entityData.map((data, index) => (
-                                    <Product className="mx-2 my-1" key={index} data={data} messageApi={messageApi} />
+                                    <Book className="mx-2 my-1" key={index} data={data} messageApi={messageApi} />
                                 ))}
                             </Slider>
                         )}
@@ -98,4 +98,4 @@ function ProductList({ filters, title, subtitle, messageApi }) {
     );
 }
 
-export default ProductList;
+export default BookList;

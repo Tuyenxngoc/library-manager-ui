@@ -5,7 +5,7 @@ import queryString from 'query-string';
 import { Parallax } from 'react-parallax';
 import { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
-import Product from '~/components/Product';
+import Book from '~/components/Book';
 import SectionHeader from '~/components/SectionHeader';
 import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
 import { getBookByBookDefinitionsForUser } from '~/services/bookDefinitionService';
@@ -158,7 +158,7 @@ function BookCollection() {
                             ) : entityData.length > 0 ? (
                                 entityData.map((data, index) => (
                                     <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3">
-                                        <Product data={data} messageApi={messageApi} />
+                                        <Book data={data} messageApi={messageApi} />
                                     </div>
                                 ))
                             ) : (

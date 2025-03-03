@@ -9,7 +9,7 @@ import { getNewsArticleByTitleSlugForUser, getNewsArticlesForUser } from '~/serv
 import classNames from 'classnames/bind';
 import styles from '~/styles/NewsArticleDetail.module.scss';
 import SocialIcons from '~/components/SocialIcons';
-import Post from '~/components/Post';
+import NewsArticle from '~/components/NewsArticle';
 
 const cx = classNames.bind(styles);
 
@@ -87,7 +87,7 @@ function NewsArticleDetail() {
                             </div>
                             {relatedArticles.map((data, index) => (
                                 <div className="col-12">
-                                    <Post
+                                    <NewsArticle
                                         className="mx-2 my-1"
                                         key={index}
                                         data={data}

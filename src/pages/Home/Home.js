@@ -8,12 +8,12 @@ import CountUp from 'react-countup';
 import { Button, message, Statistic } from 'antd';
 
 import { backgrounds } from '~/assets';
-import ProductList from '~/components/ProductList';
+import BookList from '~/components/BookList';
 import Slider from '~/components/Slider';
 
 import classNames from 'classnames/bind';
 import styles from '~/styles/Home.module.scss';
-import PostList from '~/components/PostList';
+import NewsArticleList from '~/components/NewsArticleList';
 import { getLibraryInfoStats } from '~/services/statisticsService';
 import { useNavigate } from 'react-router-dom';
 
@@ -63,7 +63,7 @@ function Home() {
 
             <Slider />
 
-            <ProductList
+            <BookList
                 filters={{
                     sortBy: 'title',
                     sortType: 'DESC',
@@ -98,7 +98,7 @@ function Home() {
                 </div>
             </Parallax>
 
-            <ProductList
+            <BookList
                 filters={{
                     sortBy: 'id',
                     sortType: 'DESC',
@@ -121,7 +121,7 @@ function Home() {
                 </div>
             </Parallax>
 
-            <PostList />
+            <NewsArticleList />
         </>
     );
 }
