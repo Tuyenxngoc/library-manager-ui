@@ -19,6 +19,7 @@ const defaultValue = {
     provinceCity: '',
     educationOffice: '',
     school: '',
+    principalName: '',
     phoneNumber: '',
     alternatePhoneNumber: '',
     faxNumber: '',
@@ -46,6 +47,8 @@ const validationSchema = yup.object({
     email: yup.string().email('Email không hợp lệ, vui lòng kiểm tra lại.').required('Vui lòng nhập email.'),
 
     phoneNumber: yup.string().required('Vui lòng nhập số điện thoại.'),
+
+    principalName: yup.string().required('Vui lòng nhập tên hiệu trưởng.'),
 });
 
 function LibraryInfo() {
@@ -297,6 +300,24 @@ function LibraryInfo() {
                             status={formik.touched.school && formik.errors.school ? 'error' : undefined}
                         />
                         <div className="text-danger">{formik.touched.school && formik.errors.school}</div>
+                    </div>
+                </div>
+                <div className="row mb-3">
+                    <div className="col-md-3">
+                        <label htmlFor="principalName">
+                            <span className="text-danger">*</span> Hiệu trưởng:
+                        </label>
+                    </div>
+                    <div className="col-md-6">
+                        <Input
+                            id="principalName"
+                            name="principalName"
+                            value={formik.values.principalName}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            status={formik.touched.principalName && formik.errors.principalName ? 'error' : undefined}
+                        />
+                        <div className="text-danger">{formik.touched.principalName && formik.errors.principalName}</div>
                     </div>
                 </div>
                 <div className="row mb-3">
