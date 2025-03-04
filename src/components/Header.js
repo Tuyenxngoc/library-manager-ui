@@ -11,6 +11,7 @@ import queryString from 'query-string';
 import classNames from 'classnames/bind';
 import styles from '~/styles/Header.module.scss';
 import { ROLES } from '~/common/roleConstants';
+import images from '~/assets';
 
 const cx = classNames.bind(styles);
 
@@ -130,10 +131,10 @@ function Header() {
 
             <div className="container py-4">
                 <div className="row align-items-center">
-                    <div className="col-4">
-                        <h1>Library Manager</h1>
+                    <div className="col-3 d-flex align-items-center justify-content-center">
+                        <img src={images.logo} alt="logo" style={{ height: 60 }} />
                     </div>
-                    <div className="col-8">
+                    <div className="col-9">
                         <Space.Compact className="w-100">
                             <Select
                                 size="large"
