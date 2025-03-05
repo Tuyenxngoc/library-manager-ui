@@ -52,14 +52,19 @@ function Book({ className, data, messageApi }) {
 
                 <div className={cx('bookwriter')}>
                     <span>Tác giả: </span>
-                    {data.authors.length > 0
-                        ? data.authors.map((author, index) => (
-                              <React.Fragment key={author.id || index}>
-                                  <Link to={`/books?authorId=${author.id}`}>{author.name}</Link>
-                                  {index < data.authors.length - 1 && ', '}
-                              </React.Fragment>
-                          ))
-                        : 'Không xác định'}
+                    {data.authors.length > 0 ? (
+                        <>
+                            {data.authors.slice(0, 2).map((author, index) => (
+                                <React.Fragment key={author.id || index}>
+                                    <Link to={`/books?authorId=${author.id}`}>{author.name}</Link>
+                                    {index < Math.min(1, data.authors.length - 1) && ', '}
+                                </React.Fragment>
+                            ))}
+                            {data.authors.length > 2 && <span> và {data.authors.length - 2} tác giả khác</span>}
+                        </>
+                    ) : (
+                        'Không xác định'
+                    )}
                 </div>
 
                 <Button type="primary" shape="round" icon={<FaShare />} onClick={() => handleAddToCart(data.id)}>

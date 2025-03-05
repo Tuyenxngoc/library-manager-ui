@@ -56,7 +56,8 @@ function Search() {
             setEntityData(items);
             setMeta(meta);
         } catch (error) {
-            setErrorMessage(error.message);
+            const errorMessage = error.response?.data?.message || 'Đã có lỗi sảy ra, vui lòng thử lại sau.';
+            setErrorMessage(errorMessage);
         } finally {
             setIsLoading(false);
         }

@@ -6,7 +6,7 @@ const searchFieldOptions = [
     { label: 'Nhan đề', value: 'title' },
     { label: 'Tác giả', value: 'author' },
     { label: 'Nhà xuất bản', value: 'publisher' },
-    { label: 'Năm xuất bản', value: 'publicationYear' },
+    { label: 'Năm xuất bản', value: 'publishingYear' },
     { label: 'Số ISBN', value: 'isbn' },
 ];
 
@@ -46,7 +46,7 @@ function AdvancedSearchForm({ onSearch }) {
     };
 
     const resetCriteria = () => {
-        setSearchCriteria([defaultValue]);
+        setSearchCriteria([{ ...defaultValue }]);
     };
 
     const handleInputChange = (index, field, value) => {
