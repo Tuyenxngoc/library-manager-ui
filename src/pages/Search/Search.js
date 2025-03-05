@@ -183,7 +183,7 @@ function Search() {
 
                 <div className="row mb-4">
                     {isLoading ? (
-                        <>Đang tải...</>
+                        <div className="alert alert-info"> Đang tải... </div>
                     ) : errorMessage ? (
                         <div className="alert alert-danger">{errorMessage}</div>
                     ) : (
