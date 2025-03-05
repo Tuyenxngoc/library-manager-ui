@@ -27,11 +27,21 @@ function Slider() {
     }, []);
 
     if (isLoading) {
-        return <>Loading...</>;
+        return (
+            <div className="d-flex flex-column gap-2">
+                <div className="placeholder-glow">
+                    <span className="placeholder col-12" style={{ height: '400px', display: 'block' }}></span>
+                </div>
+            </div>
+        );
     }
 
     if (errorMessage) {
-        return <>{errorMessage}</>;
+        return (
+            <div className="alert alert-danger text-center" role="alert">
+                <strong>Error:</strong> {errorMessage}
+            </div>
+        );
     }
 
     return (
