@@ -74,9 +74,13 @@ function NewsArticleList() {
                 <div className="row">
                     <div className="col-12">
                         {isLoading ? (
-                            <>Loading</>
+                            <div className="spinner-border text-primary" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
                         ) : errorMessage ? (
-                            <>{errorMessage}</>
+                            <div className="alert alert-danger text-center" role="alert">
+                                <strong>Error:</strong> {errorMessage}
+                            </div>
                         ) : (
                             <Slider ref={sliderRef} {...settings}>
                                 {entityData.map((data, index) => (
