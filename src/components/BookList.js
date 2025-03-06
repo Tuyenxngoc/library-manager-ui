@@ -15,7 +15,7 @@ import queryString from 'query-string';
 
 const cx = classNames.bind(styles);
 
-function BookList({ filters, title, subtitle, messageApi }) {
+function BookList({ filters, title, subtitle, messageApi, fetchData = getBookByBookDefinitionsForUser }) {
     const sliderRef = useRef(null);
     const navigate = useNavigate();
 
@@ -51,9 +51,13 @@ function BookList({ filters, title, subtitle, messageApi }) {
             setErrorMessage(null);
             try {
                 const params = queryString.stringify(filters);
-                const response = await getBookByBookDefinitionsForUser(params);
+                const response = await fetchData(params);
                 const { items } = response.data.data;
-                setEntityData(items);
+                if (items) {
+                    setEntityData(items);
+                } else {
+                    setEntityData(response.data.data);
+                }
             } catch (error) {
                 setErrorMessage(error.message);
             } finally {

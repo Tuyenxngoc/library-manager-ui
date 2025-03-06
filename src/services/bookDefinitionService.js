@@ -20,6 +20,10 @@ export const getBookByBookDefinitionsForUser = (params) => {
     return httpRequest.get(`book-definitions/books?${params}`);
 };
 
+export const getRecommendBookDefinitions = (params) => {
+    return axiosPrivate.get(`book-definitions/recommend?${params}`);
+};
+
 export const getBookDetailForUser = (id) => {
     return httpRequest.get(`book-definitions/books/${id}`);
 };

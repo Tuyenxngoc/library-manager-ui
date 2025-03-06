@@ -5,7 +5,7 @@ import { ImBooks, ImUserPlus } from 'react-icons/im';
 import { FiUsers } from 'react-icons/fi';
 import { BsShop } from 'react-icons/bs';
 import CountUp from 'react-countup';
-import { Button, message, Statistic } from 'antd';
+import { Alert, Button, message, Spin, Statistic } from 'antd';
 
 import { backgrounds } from '~/assets';
 import BookList from '~/components/BookList';
@@ -15,13 +15,17 @@ import classNames from 'classnames/bind';
 import styles from '~/styles/Home.module.scss';
 import NewsArticleList from '~/components/NewsArticleList';
 import { getLibraryInfoStats } from '~/services/statisticsService';
+import { getRecommendBookDefinitions } from '~/services/bookDefinitionService';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '~/hooks/useAuth';
 
 const cx = classNames.bind(styles);
 
 const formatter = (value) => <CountUp end={value} duration={10} separator="," />;
 
 function Home() {
+    const { isAuthenticated } = useAuth();
+
     const navigate = useNavigate();
     const [libraryStats, setLibraryStats] = useState(null);
 
@@ -63,6 +67,18 @@ function Home() {
 
             <Slider />
 
+            {isAuthenticated && (
+                <BookList
+                    filters={{
+                        topN: '5',
+                    }}
+                    title={<h2 className="mb-0">Gợi ý cho bạn</h2>}
+                    subtitle={'Dựa trên sở thích và lịch sử đọc'}
+                    messageApi={messageApi}
+                    fetchData={getRecommendBookDefinitions}
+                />
+            )}
+
             <BookList
                 filters={{
                     sortBy: 'title',
@@ -78,9 +94,13 @@ function Home() {
                 <div className="container py-5">
                     <div className="row">
                         {isLoading ? (
-                            <>Loading</>
+                            <div className="d-flex justify-content-center w-100">
+                                <Spin size="large" />
+                            </div>
                         ) : errorMessage ? (
-                            <>{errorMessage}</>
+                            <div className="w-100">
+                                <Alert message="Lỗi" description={errorMessage} type="error" />
+                            </div>
                         ) : (
                             libraryStats.map((item, index) => (
                                 <div key={index} className={cx('col-3', 'collectioncounter', item.className)}>
