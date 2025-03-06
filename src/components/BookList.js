@@ -59,7 +59,8 @@ function BookList({ filters, title, subtitle, messageApi, fetchData = getBookByB
                     setEntityData(response.data.data);
                 }
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage = error.response?.data?.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }

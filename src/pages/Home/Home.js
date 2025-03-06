@@ -17,6 +17,7 @@ import NewsArticleList from '~/components/NewsArticleList';
 import { getLibraryInfoStats } from '~/services/statisticsService';
 import { getRecommendBookDefinitions } from '~/services/bookDefinitionService';
 import { useNavigate } from 'react-router-dom';
+import { ROLES } from '~/common/roleConstants';
 import useAuth from '~/hooks/useAuth';
 
 const cx = classNames.bind(styles);
@@ -24,7 +25,8 @@ const cx = classNames.bind(styles);
 const formatter = (value) => <CountUp end={value} duration={10} separator="," />;
 
 function Home() {
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, user } = useAuth();
+    const hasRequiredRole = isAuthenticated && user.roleNames[0] === ROLES.Reader;
 
     const navigate = useNavigate();
     const [libraryStats, setLibraryStats] = useState(null);
@@ -52,7 +54,8 @@ function Home() {
                     { title: 'Số bạn đọc', icon: <ImUserPlus />, count: readers, className: 'readers' },
                 ]);
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage = error.response?.data?.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }
@@ -67,13 +70,13 @@ function Home() {
 
             <Slider />
 
-            {isAuthenticated && (
+            {isAuthenticated && hasRequiredRole && (
                 <BookList
                     filters={{
                         topN: '5',
                     }}
                     title={<h2 className="mb-0">Gợi ý cho bạn</h2>}
-                    subtitle={'Dựa trên sở thích và lịch sử đọc'}
+                    subtitle={'Dựa trên lịch sử đọc của bạn'}
                     messageApi={messageApi}
                     fetchData={getRecommendBookDefinitions}
                 />

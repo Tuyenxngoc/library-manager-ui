@@ -100,6 +100,7 @@ function BorrowHistory() {
             title: 'Số sách',
             dataIndex: 'books',
             key: 'books',
+            render: (text) => text.length,
         },
         {
             title: 'Ngày mượn',
@@ -139,6 +140,29 @@ function BorrowHistory() {
             </div>
         );
     }
+
+    const expandedRowRender = (record) => {
+        const bookColumns = [
+            {
+                title: 'Tên sách',
+                dataIndex: 'title',
+                key: 'title',
+            },
+            {
+                title: 'Mã sách',
+                dataIndex: 'bookCode',
+                key: 'bookCode',
+            },
+            {
+                title: 'Trạng thái',
+                dataIndex: 'status',
+                key: 'status',
+                render: (status) => (status === 'NOT_RETURNED' ? 'Chưa trả' : 'Đã trả'),
+            },
+        ];
+
+        return <Table columns={bookColumns} dataSource={record.books} rowKey="bookCode" pagination={false} />;
+    };
 
     return (
         <>
@@ -218,6 +242,7 @@ function BorrowHistory() {
                                 showSizeChanger: true,
                                 onShowSizeChange: handleChangeRowsPerPage,
                             }}
+                            expandable={{ expandedRowRender }}
                         />
                     </div>
                 </div>
