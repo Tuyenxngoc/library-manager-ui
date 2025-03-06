@@ -73,7 +73,7 @@ function Home() {
             {isAuthenticated && hasRequiredRole && (
                 <BookList
                     filters={{
-                        topN: '5',
+                        topN: '6',
                     }}
                     title={<h2 className="mb-0">Gợi ý cho bạn</h2>}
                     subtitle={'Dựa trên lịch sử đọc của bạn'}
