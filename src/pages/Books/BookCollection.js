@@ -152,7 +152,7 @@ function BookCollection() {
                                 />
                             </div>
                         </div>
-                        <div className="row mb-4">
+                        <div className="row mb-4 gy-3">
                             {isLoading ? (
                                 <Spin />
                             ) : entityData.length > 0 ? (
