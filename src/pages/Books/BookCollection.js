@@ -19,7 +19,10 @@ function BookCollection() {
     const [searchParams] = useSearchParams();
 
     const [meta, setMeta] = useState(INITIAL_META);
-    const [filters, setFilters] = useState(INITIAL_FILTERS);
+    const [filters, setFilters] = useState({
+        ...INITIAL_FILTERS,
+        pageSize: 12,
+    });
 
     const [entityData, setEntityData] = useState(null);
 
