@@ -10,6 +10,7 @@ const options = [
     { value: 'receiptNumber', label: 'Số phiếu mượn' },
     { value: 'cardNumber', label: 'Số thẻ bạn đọc' },
     { value: 'fullName', label: 'Tên bạn đọc' },
+    { value: 'title', label: 'Nhan đề' },
 ];
 
 function ReturnHistory() {
