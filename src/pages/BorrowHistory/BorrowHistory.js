@@ -8,6 +8,7 @@ import Breadcrumb from '~/components/Breadcrumb';
 import SectionHeader from '~/components/SectionHeader';
 import { getBorrowReceiptsForReader } from '~/services/borrowReceiptService';
 import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { bookBorrowReceiptMapping } from '~/common/borrowConstants';
 
 const options = [{ value: 'receiptNumber', label: 'Số phiếu' }];
 
@@ -157,7 +158,7 @@ function BorrowHistory() {
                 title: 'Trạng thái',
                 dataIndex: 'status',
                 key: 'status',
-                render: (status) => (status === 'NOT_RETURNED' ? 'Chưa trả' : 'Đã trả'),
+                render: (status) => bookBorrowReceiptMapping[status],
             },
         ];
 

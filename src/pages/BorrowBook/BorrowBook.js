@@ -161,7 +161,7 @@ function BorrowBook() {
     const handlePrintBlankTemplate = async () => {
         setIsLoading(true);
         try {
-            const response = await printBorrowReceipts();
+            const response = await printBorrowReceipts({});
             if (response.status === 200) {
                 const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
                 const url = URL.createObjectURL(pdfBlob);
