@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 
 import classNames from 'classnames/bind';
-import styles from '~/styles/SectionHeader.module.scss';
+import styles from './SectionHeader.module.scss';
 
 const cx = classNames.bind(styles);
 

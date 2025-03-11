@@ -4,7 +4,7 @@ import { Tag } from 'antd';
 import { FaUser } from 'react-icons/fa';
 import dayjs from 'dayjs';
 import classNames from 'classnames/bind';
-import styles from '~/styles/Post.module.scss';
+import styles from './NewsArticle.module.scss';
 import images from '~/assets';
 
 const cx = classNames.bind(styles);

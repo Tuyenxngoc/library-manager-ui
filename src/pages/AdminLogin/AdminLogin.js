@@ -8,7 +8,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 import classNames from 'classnames/bind';
-import styles from '~/styles/AdminLogin.module.scss';
+import styles from './AdminLogin.module.scss';
 import useAuth from '~/hooks/useAuth';
 import { adminLogin } from '~/services/authService';
 import { handleError } from '~/utils/errorHandler';

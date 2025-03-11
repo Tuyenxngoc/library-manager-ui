@@ -4,7 +4,7 @@ import Breadcrumb from '~/components/Breadcrumb';
 import SectionHeader from '~/components/SectionHeader';
 
 import classNames from 'classnames/bind';
-import styles from '~/styles/Rules.module.scss';
+import styles from './Rules.module.scss';
 import { useEffect, useState } from 'react';
 import { getLibraryRules } from '~/services/systemSettingService';
 

@@ -11,7 +11,7 @@ import { LibraryProvider } from './contexts/LibraryProvider';
 
 import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '~/styles/Global.scss';
+import './Global.scss';
 
 import dayjs from 'dayjs';
 import 'dayjs/locale/vi';

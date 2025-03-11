@@ -6,7 +6,7 @@ import images, { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
 import SectionHeader from '~/components/SectionHeader';
 import classNames from 'classnames/bind';
-import styles from '~/styles/BookDetail.module.scss';
+import styles from './BookDetail.module.scss';
 import SocialIcons from '~/components/SocialIcons';
 import { getBookDetailForUser } from '~/services/bookDefinitionService';
 import { addToCart } from '~/services/cartService';

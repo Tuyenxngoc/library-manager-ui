@@ -3,9 +3,9 @@ import { LuPhone } from 'react-icons/lu';
 import { MdMailOutline } from 'react-icons/md';
 import dayjs from 'dayjs';
 import classNames from 'classnames/bind';
-import styles from '~/styles/Footer.module.scss';
-import SocialIcons from './SocialIcons';
+import styles from './Footer.module.scss';
 import useLibrary from '~/hooks/useLibrary';
+import SocialIcons from '~/components/SocialIcons';
 
 const cx = classNames.bind(styles);
 

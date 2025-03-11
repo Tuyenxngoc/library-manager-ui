@@ -1,7 +1,7 @@
 import { Tabs } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
-import BookCategory from './BookCategory';
-import BookCategoryGroup from './BookCategoryGroup';
+import BookCategory from '~/pages/BookCategory';
+import BookCategoryGroup from '~/pages/BookCategoryGroup';
 
 function Category() {
     const location = useLocation();

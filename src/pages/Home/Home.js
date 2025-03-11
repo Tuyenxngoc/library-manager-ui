@@ -12,7 +12,7 @@ import BookList from '~/components/BookList';
 import Slider from '~/components/Slider';
 
 import classNames from 'classnames/bind';
-import styles from '~/styles/Home.module.scss';
+import styles from './Home.module.scss';
 import NewsArticleList from '~/components/NewsArticleList';
 import { getLibraryInfoStats } from '~/services/statisticsService';
 import { getRecommendBookDefinitions } from '~/services/bookDefinitionService';

@@ -18,7 +18,7 @@ import {
     Cell,
 } from 'recharts';
 import classNames from 'classnames/bind';
-import styles from '~/styles/Dashboard.module.scss';
+import styles from './Dashboard.module.scss';
 import {
     getBorrowStats,
     getLoanStatus,

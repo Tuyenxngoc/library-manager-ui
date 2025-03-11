@@ -9,7 +9,7 @@ import useAuth from '~/hooks/useAuth';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import queryString from 'query-string';
 import classNames from 'classnames/bind';
-import styles from '~/styles/Header.module.scss';
+import styles from './Header.module.scss';
 import { ROLES } from '~/common/roleConstants';
 import images from '~/assets';
 

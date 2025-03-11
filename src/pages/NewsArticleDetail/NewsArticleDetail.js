@@ -7,7 +7,7 @@ import images, { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
 import { getNewsArticleByTitleSlugForUser, getNewsArticlesForUser } from '~/services/newsArticlesService';
 import classNames from 'classnames/bind';
-import styles from '~/styles/NewsArticleDetail.module.scss';
+import styles from './NewsArticleDetail.module.scss';
 import SocialIcons from '~/components/SocialIcons';
 import NewsArticle from '~/components/NewsArticle';
 

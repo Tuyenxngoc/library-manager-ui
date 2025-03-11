@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import classNames from 'classnames/bind';
-import styles from '~/styles/PostList.module.scss';
-import NewsArticle from './NewsArticle';
-import SectionHeader from './SectionHeader';
+import styles from './NewsArticleList.module.scss';
+import NewsArticle from '~/components/NewsArticle';
+import SectionHeader from '~/components/SectionHeader';
 import { getNewsArticlesForUser } from '~/services/newsArticlesService';
 
 const cx = classNames.bind(styles);

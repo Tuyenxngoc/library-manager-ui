@@ -6,11 +6,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import Book from './Book';
-import SectionHeader from './SectionHeader';
+import Book from '~/components/Book';
+import SectionHeader from '~/components/SectionHeader';
 
 import classNames from 'classnames/bind';
-import styles from '~/styles/ProductList.module.scss';
+import styles from './BookList.module.scss';
 import { getBookByBookDefinitionsForUser } from '~/services/bookDefinitionService';
 import queryString from 'query-string';
 

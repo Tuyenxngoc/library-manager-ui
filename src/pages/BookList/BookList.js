@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Flex, Space } from 'antd';
-import BookListByCategory from './BookListByCategory';
-import BookListByCode from './BookListByCode';
+import BookListByCategory from '~/pages/BookListByCategory';
+import BookListByCode from '~/pages/BookListByCode';
 
 function BookList() {
     const [activeTab, setActiveTab] = useState(true);
