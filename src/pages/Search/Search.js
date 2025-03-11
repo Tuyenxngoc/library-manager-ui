@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { Parallax } from 'react-parallax';
 import { Collapse, message, Pagination, Tabs } from 'antd';
@@ -6,11 +7,10 @@ import { backgrounds } from '~/assets';
 import Book from '~/components/Book';
 import Breadcrumb from '~/components/Breadcrumb';
 import SectionHeader from '~/components/SectionHeader';
-import BasicSearchForm from '~/components/BasicSearchForm';
-import AdvancedSearchForm from '~/components/AdvancedSearchForm';
+import BasicSearchForm from './BasicSearchForm';
+import AdvancedSearchForm from './AdvancedSearchForm';
 import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
 import { advancedSearchBooks, searchBooks } from '~/services/bookDefinitionService';
-import { useLocation } from 'react-router-dom';
 import { getLibraryInfoStats } from '~/services/statisticsService';
 
 function Search() {
