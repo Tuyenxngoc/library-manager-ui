@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import DefaultLayout from './layouts/DefaultLayout';
 
-import RequireAuth from './utils/RequireAuth';
+import RequireAuth from './routes/RequireAuth';
 import { ROLES } from './common/roleConstants';
 
 import Home from './pages/Home';
