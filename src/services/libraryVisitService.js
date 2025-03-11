@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const createLibraryVisit = (values) => {
     return axiosPrivate.post('library-visits', values);

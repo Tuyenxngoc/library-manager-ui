@@ -1,4 +1,4 @@
-import httpRequest, { axiosPrivate } from '~/apis/configHttp';
+import httpRequest, { axiosPrivate } from '~/utils/httpRequest';
 
 export const getBookDefinitionById = (id) => {
     return axiosPrivate.get(`admin/book-definitions/${id}`);

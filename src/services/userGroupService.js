@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const createUserGroup = (values) => {
     return axiosPrivate.post('user-groups', values);

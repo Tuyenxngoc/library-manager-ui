@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const getRoles = () => {
     return axiosPrivate.get('roles');

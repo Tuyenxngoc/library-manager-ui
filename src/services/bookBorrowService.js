@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const getBookBorrows = (params) => {
     return axiosPrivate.get(`admin/book-borrows?${params}`);

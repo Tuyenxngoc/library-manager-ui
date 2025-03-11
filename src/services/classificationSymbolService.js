@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const createClassificationSymbol = (values) => {
     return axiosPrivate.post('classification-symbols', values);

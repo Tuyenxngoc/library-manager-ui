@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const updateBook = (id, values) => {
     return axiosPrivate.put(`books/${id}`, values);

@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const generateReceiptNumber = async () => {
     return axiosPrivate.get('export-receipts/generate-receipt-number');

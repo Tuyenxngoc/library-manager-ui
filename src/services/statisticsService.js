@@ -1,4 +1,4 @@
-import httpRequest, { axiosPrivate } from '~/apis/configHttp';
+import httpRequest, { axiosPrivate } from '~/utils/httpRequest';
 
 export const getLibraryInfoStats = () => {
     return httpRequest.get('stats/library');

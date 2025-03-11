@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const createBookSet = (values) => {
     return axiosPrivate.post('book-sets', values);

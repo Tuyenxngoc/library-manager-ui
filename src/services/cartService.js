@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const addToCart = (bookId) => {
     return axiosPrivate.post(`carts/add?bookId=${bookId}`);

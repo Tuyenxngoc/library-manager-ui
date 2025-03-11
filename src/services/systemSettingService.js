@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const updateLibraryRules = (values) => {
     return axiosPrivate.put('system-settings/library-rules', values);

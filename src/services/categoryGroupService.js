@@ -1,4 +1,4 @@
-import { axiosPrivate } from '~/apis/configHttp';
+import { axiosPrivate } from '~/utils/httpRequest';
 
 export const createCategoryGroup = (values) => {
     return axiosPrivate.post('category-groups', values);

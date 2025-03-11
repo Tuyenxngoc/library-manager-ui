@@ -1,4 +1,4 @@
-import httpRequest, { axiosPrivate } from '~/apis/configHttp';
+import httpRequest, { axiosPrivate } from '~/utils/httpRequest';
 
 export const getNewsArticleById = (id) => {
     return axiosPrivate.get(`admin/news-articles/${id}`);
