@@ -13,6 +13,8 @@ import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Global.scss';
 
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 import dayjs from 'dayjs';
 import 'dayjs/locale/vi';
 

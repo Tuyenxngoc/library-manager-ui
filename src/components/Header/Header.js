@@ -6,7 +6,6 @@ import { MdMailOutline, MdHelpOutline } from 'react-icons/md';
 import { FaRegEdit, FaHistory, FaAngleDown } from 'react-icons/fa';
 import { Dropdown, Space, Input, Select, Flex } from 'antd';
 import useAuth from '~/hooks/useAuth';
-import 'bootstrap/dist/js/bootstrap.bundle';
 import queryString from 'query-string';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
