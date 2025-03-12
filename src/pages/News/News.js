@@ -1,3 +1,4 @@
+import { Alert, Spin } from 'antd';
 import { useEffect, useState } from 'react';
 import { Parallax } from 'react-parallax';
 import { backgrounds } from '~/assets';
@@ -71,11 +72,17 @@ function News() {
                         <SectionHeader
                             title={<h2 className="mb-0">Danh sách tin tức</h2>}
                             subtitle="Tin tức và bài viết mới nhất"
+                            className="mb-4"
                         />
+
                         {isLoading ? (
-                            <>Loading</>
+                            <div className="d-flex justify-content-center w-100">
+                                <Spin size="large" />
+                            </div>
                         ) : errorMessage ? (
-                            <>{errorMessage}</>
+                            <div className="w-100">
+                                <Alert message="Lỗi" description={errorMessage} type="error" />
+                            </div>
                         ) : (
                             <div className="row">
                                 {entityData.map((data, index) => (

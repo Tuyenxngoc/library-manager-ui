@@ -16,7 +16,7 @@ function SocialIcons({ url = 'https://example.com' }) {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <img width={30} src={images.facebook} alt="icon" />
+                    <img width={30} src={images.facebook} alt="Facebook" />
                 </a>
             </li>
             <li>
@@ -25,7 +25,7 @@ function SocialIcons({ url = 'https://example.com' }) {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <img width={30} src={images.twitter} alt="icon" />
+                    <img width={30} src={images.x} alt="X (Twitter)" />
                 </a>
             </li>
             <li>
@@ -34,17 +34,34 @@ function SocialIcons({ url = 'https://example.com' }) {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <img width={30} src={images.linkedin} alt="icon" />
+                    <img width={30} src={images.linkedin} alt="LinkedIn" />
                 </a>
             </li>
             <li>
-                <a href="/" target="_blank" rel="noopener noreferrer">
-                    <img width={30} src={images.googleplus} alt="icon" />
+                <a
+                    href={`https://pinterest.com/pin/create/button/?url=${shareUrl}&media=${images.pinterest}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img width={30} src={images.pinterest} alt="Pinterest" />
                 </a>
             </li>
             <li>
-                <a href="/" target="_blank" rel="noopener noreferrer">
-                    <img width={30} src={images.rss} alt="icon" />
+                <a
+                    href={`https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img width={30} src={images.whatsapp} alt="WhatsApp" />
+                </a>
+            </li>
+            <li>
+                <a
+                    href={`https://t.me/share/url?url=${shareUrl}&text=${shareText}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img width={30} src={images.telegram} alt="Telegram" />
                 </a>
             </li>
         </ul>

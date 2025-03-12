@@ -8,11 +8,11 @@ import styles from './SectionHeader.module.scss';
 
 const cx = classNames.bind(styles);
 
-function SectionHeader({ title, subtitle, onViewAll, onPrev, onNext }) {
+function SectionHeader({ title, subtitle, onViewAll, onPrev, onNext, className }) {
     const showButtons = onViewAll || onPrev || onNext;
 
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper', className)}>
             <div className={cx('title')}>
                 {subtitle && <span>{subtitle}</span>}
                 {title}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Alert, Button, message, Pagination, Select, Spin } from 'antd';
+import { Alert, message, Pagination, Select, Spin } from 'antd';
 import queryString from 'query-string';
 import { Parallax } from 'react-parallax';
 import { backgrounds } from '~/assets';
@@ -129,7 +129,7 @@ function BookCollection() {
             <div className="container sectionspace">
                 <div className="row">
                     <div className="col-12 col-md-3">
-                        <Button block>Sách được mượn nhiều nhất</Button>
+                        <h5 className="section-title">Sách được mượn nhiều nhất</h5>
                     </div>
 
                     <div className="col-12 col-md-9">

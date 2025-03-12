@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { Button, message } from 'antd';
+import { Alert, Button, message, Spin, Tabs } from 'antd';
 import { Parallax } from 'react-parallax';
 import images, { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
@@ -43,6 +43,10 @@ function BookDetail() {
         }
     };
 
+    const onChange = (key) => {
+        console.log(key);
+    };
+
     useEffect(() => {
         const fetchEntities = async () => {
             setIsLoading(true);
@@ -63,7 +67,7 @@ function BookDetail() {
         fetchEntities();
     }, [id]);
 
-    const items = [
+    const breadcrumbItems = [
         {
             label: 'Trang chủ',
             url: '/',
@@ -74,6 +78,19 @@ function BookDetail() {
         },
         {
             label: 'Sách tiếng việt',
+        },
+    ];
+
+    const tabItems = [
+        {
+            key: '1',
+            label: 'Thông tin xếp giá',
+            children: 'Content of Tab Pane 1',
+        },
+        {
+            key: '2',
+            label: 'Chi tiết',
+            children: 'Content of Tab Pane 2',
         },
     ];
 
@@ -92,7 +109,7 @@ function BookDetail() {
 
                         <div className="row justify-content-center">
                             <div className="col-auto">
-                                <Breadcrumb items={items} />
+                                <Breadcrumb items={breadcrumbItems} />
                             </div>
                         </div>
                     </div>
@@ -102,13 +119,17 @@ function BookDetail() {
             <div className="container sectionspace">
                 <div className="row mb-4">
                     <div className="col-3">
-                        <Button block>Sách được mượn nhiều nhất</Button>
+                        <h5 className="section-title">Sách được mượn nhiều nhất</h5>
                     </div>
                     <div className="col-9">
                         {isLoading ? (
-                            <>Loading</>
+                            <div className="d-flex justify-content-center w-100">
+                                <Spin size="large" />
+                            </div>
                         ) : errorMessage ? (
-                            <>{errorMessage}</>
+                            <div className="w-100">
+                                <Alert message="Lỗi" description={errorMessage} type="error" />
+                            </div>
                         ) : (
                             <div className={cx('content')}>
                                 <div className="row">
@@ -184,6 +205,9 @@ function BookDetail() {
                                                 <span>{entityData.isbn || 'N/A'}</span>
                                             </li>
                                         </ul>
+                                    </div>
+                                    <div className="col-12">
+                                        <Tabs defaultActiveKey="1" items={tabItems} onChange={onChange} />
                                     </div>
                                 </div>
                             </div>
