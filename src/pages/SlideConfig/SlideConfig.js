@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { MdOutlineModeEdit, MdOutlineFileUpload } from 'react-icons/md';
-import { Image, Flex, message, Popconfirm, Checkbox, Row, Col } from 'antd';
+import { Image, Flex, message, Popconfirm, Checkbox, Row, Col, Alert } from 'antd';
 import { Table, Button, Space, Modal, Input, Form, Switch, Upload } from 'antd';
 import images from '~/assets';
 import { addSlide, deleteSlide, getSlides, toggleActiveFlagSlide, updateSlide } from '~/services/systemSettingService';
@@ -150,7 +150,9 @@ function SlideConfig() {
                 const response = await getSlides();
                 setEntityData(response.data.data);
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage =
+                    error.response?.data?.message || error.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }
@@ -208,11 +210,7 @@ function SlideConfig() {
     ];
 
     if (errorMessage) {
-        return (
-            <div className="alert alert-danger p-2" role="alert">
-                Lỗi: {errorMessage}
-            </div>
-        );
+        return <Alert message="Lỗi" description={errorMessage} type="error" />;
     }
 
     return (

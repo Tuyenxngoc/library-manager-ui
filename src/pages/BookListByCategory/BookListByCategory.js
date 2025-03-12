@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Button, Dropdown, Input, Select, Space, Table, Tree } from 'antd';
+import { Alert, Button, Dropdown, Input, Select, Space, Table, Tree } from 'antd';
 import { FaPrint } from 'react-icons/fa';
 import { GrPrint } from 'react-icons/gr';
 import queryString from 'query-string';
@@ -194,7 +194,9 @@ function BookListByCategory() {
                 setEntityData(items);
                 setMeta(meta);
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage =
+                    error.response?.data?.message || error.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }
@@ -219,7 +221,9 @@ function BookListByCategory() {
                 });
                 setExpandedKeys(allKeys);
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage =
+                    error.response?.data?.message || error.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }
@@ -348,11 +352,7 @@ function BookListByCategory() {
     ];
 
     if (errorMessage) {
-        return (
-            <div className="alert alert-danger p-2" role="alert">
-                Lỗi: {errorMessage}
-            </div>
-        );
+        return <Alert message="Lỗi" description={errorMessage} type="error" />;
     }
     return (
         <>

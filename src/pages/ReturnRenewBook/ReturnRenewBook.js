@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Button, Flex, Input, message, Modal, Select, Space, Table } from 'antd';
+import { Alert, Button, Flex, Input, message, Modal, Select, Space, Table } from 'antd';
 import queryString from 'query-string';
 import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
 import { getBookBorrows, reportLostBooks, returnBooks } from '~/services/bookBorrowService';
@@ -167,7 +167,9 @@ function ReturnRenewBook() {
                 setEntityData(items);
                 setMeta(meta);
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage =
+                    error.response?.data?.message || error.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }
@@ -257,11 +259,7 @@ function ReturnRenewBook() {
     };
 
     if (errorMessage) {
-        return (
-            <div className="alert alert-danger p-2" role="alert">
-                Lỗi: {errorMessage}
-            </div>
-        );
+        return <Alert message="Lỗi" description={errorMessage} type="error" />;
     }
 
     return (

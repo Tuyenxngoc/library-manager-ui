@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Input, message, Popconfirm, Select, Space } from 'antd';
+import { Alert, Input, message, Popconfirm, Select, Space } from 'antd';
 import { Button, Dropdown, Flex, Form, Table, Tag } from 'antd';
 import { MdOutlineModeEdit } from 'react-icons/md';
 import { FaRegTrashAlt, FaPrint } from 'react-icons/fa';
@@ -236,7 +236,9 @@ function Reader() {
                 setEntityData(items);
                 setMeta(meta);
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage =
+                    error.response?.data?.message || error.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }
@@ -349,11 +351,7 @@ function Reader() {
     ];
 
     if (errorMessage) {
-        return (
-            <div className="alert alert-danger p-2" role="alert">
-                Lỗi: {errorMessage}
-            </div>
-        );
+        return <Alert message="Lỗi" description={errorMessage} type="error" />;
     }
 
     return (

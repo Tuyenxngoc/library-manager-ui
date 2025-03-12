@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
+import { Alert, Spin } from 'antd';
 import classNames from 'classnames/bind';
 import styles from './NewsArticleList.module.scss';
 import NewsArticle from '~/components/NewsArticle';
@@ -75,12 +76,12 @@ function NewsArticleList() {
                 <div className="row">
                     <div className="col-12">
                         {isLoading ? (
-                            <div className="spinner-border text-primary" role="status">
-                                <span className="visually-hidden">Loading...</span>
+                            <div className="d-flex justify-content-center w-100">
+                                <Spin size="large" />
                             </div>
                         ) : errorMessage ? (
-                            <div className="alert alert-danger text-center" role="alert">
-                                <strong>Error:</strong> {errorMessage}
+                            <div className="w-100">
+                                <Alert message="Lỗi" description={errorMessage} type="error" />
                             </div>
                         ) : (
                             <Slider ref={sliderRef} {...settings}>

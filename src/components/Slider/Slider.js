@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import queryString from 'query-string';
+import { Alert } from 'antd';
 import { getSlides } from '~/services/systemSettingService';
 
 function Slider() {
@@ -17,7 +18,9 @@ function Slider() {
                 const response = await getSlides(params);
                 setEntityData(response.data.data);
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage =
+                    error.response?.data?.message || error.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }
@@ -38,8 +41,8 @@ function Slider() {
 
     if (errorMessage) {
         return (
-            <div className="alert alert-danger text-center" role="alert">
-                <strong>Error:</strong> {errorMessage}
+            <div className="container">
+                <Alert message="Lỗi" description={errorMessage} type="error" />
             </div>
         );
     }

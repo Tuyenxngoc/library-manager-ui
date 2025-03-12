@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import queryString from 'query-string';
-import { Button, Col, Descriptions, Flex, Form, Image, Input, message, Row, Space, Table } from 'antd';
+import { Alert, Button, Col, Descriptions, Flex, Form, Image, Input, message, Row, Space, Table } from 'antd';
 import { IoMdPersonAdd } from 'react-icons/io';
 import { FaRegClock, FaList, FaSignOutAlt } from 'react-icons/fa';
 import images from '~/assets';
@@ -121,7 +121,9 @@ function LibraryVisit() {
                 setEntityData(items);
                 setMeta(meta);
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage =
+                    error.response?.data?.message || error.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }
@@ -175,11 +177,7 @@ function LibraryVisit() {
     ];
 
     if (errorMessage) {
-        return (
-            <div className="alert alert-danger p-2" role="alert">
-                Lỗi: {errorMessage}
-            </div>
-        );
+        return <Alert message="Lỗi" description={errorMessage} type="error" />;
     }
 
     return (
