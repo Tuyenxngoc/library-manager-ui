@@ -49,7 +49,7 @@ function NewsArticlesForm() {
     const [messageApi, contextHolder] = message.useMessage();
 
     const [fileList, setFileList] = useState([]);
-    const [previousImage, setPreviousImage] = useState(images.placeimg);
+    const [previousImage, setPreviousImage] = useState(images.placeimgHorizontal);
 
     const handleUploadChange = ({ file, fileList }) => {
         setFileList(fileList);
@@ -168,6 +168,8 @@ function NewsArticlesForm() {
 
             <form onSubmit={formik.handleSubmit}>
                 <div className="row g-3">
+                    <FormInput id="title" label="Tiêu đề" className="col-md-6" formik={formik} required />
+
                     <div className="col-md-6">
                         <label htmlFor="newsType">
                             <span className="text-danger">*</span> Loại tin:
@@ -185,12 +187,10 @@ function NewsArticlesForm() {
                         <div className="text-danger">{formik.touched.newsType && formik.errors.newsType}</div>
                     </div>
 
-                    <FormInput id="title" label="Tiêu đề" className="col-md-6" formik={formik} required />
+                    <FormTextArea id="description" label="Miêu tả" className="col-md-8" formik={formik} rows={6} />
 
-                    <FormTextArea id="description" label="Miêu tả" className="col-md-6" formik={formik} />
-
-                    <div className="col-md-6 text-center">
-                        <Image width={200} src={previousImage} fallback={images.placeimg} />
+                    <div className="col-md-4 text-center">
+                        <Image width={200} src={previousImage} fallback={images.placeimgHorizontal} />
 
                         <Upload
                             className="d-block mt-2"
