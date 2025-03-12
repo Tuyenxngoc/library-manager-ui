@@ -9,6 +9,8 @@ import classNames from 'classnames/bind';
 import styles from './NewsArticleDetail.module.scss';
 import SocialIcons from '~/components/SocialIcons';
 import NewsArticle from '~/components/NewsArticle';
+import { FaRegClock } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
 
 const cx = classNames.bind(styles);
 
@@ -102,23 +104,30 @@ function NewsArticleDetail() {
                             </div>
                         ) : (
                             <>
-                                <div className={cx('newsdetail')}>
-                                    <div className={cx('posttitle')}>
-                                        <h3>{articleDetail.title}</h3>
-                                    </div>
+                                <div className={cx('title')}>
+                                    <h3>{articleDetail.title}</h3>
+                                </div>
 
-                                    <div className={cx('description')}>
-                                        <q>{articleDetail.description}</q>
-                                        <div
-                                            className="ql-snow ql-editor p-0 mt-4"
-                                            style={{ whiteSpace: 'normal', overflowWrap: 'anywhere' }}
-                                            dangerouslySetInnerHTML={{ __html: articleDetail.content }}
-                                        />
-                                    </div>
-                                    <div className={cx('tagsshare')}>
-                                        <span>Share:</span>
-                                        <SocialIcons url={`http://localhost:3000/news-articles/${id}`} />
-                                    </div>
+                                <div className={cx('meta-info')}>
+                                    <span className={cx('meta-item', 'created-date')}>
+                                        <FaRegClock /> {new Date(articleDetail.createdDate).toLocaleDateString('vi-VN')}
+                                    </span>
+                                    <span className={cx('meta-item', 'view-count')}>
+                                        <FaEye /> {articleDetail.viewCount.toLocaleString()} lượt xem
+                                    </span>
+                                </div>
+
+                                <div className={cx('description')}>
+                                    <q>{articleDetail.description}</q>
+                                    <div
+                                        className="ql-snow ql-editor p-0 mt-4"
+                                        style={{ whiteSpace: 'normal', overflowWrap: 'anywhere' }}
+                                        dangerouslySetInnerHTML={{ __html: articleDetail.content }}
+                                    />
+                                </div>
+                                <div className={cx('share')}>
+                                    <span>Share:</span>
+                                    <SocialIcons url={`http://localhost:3000/news-articles/${id}`} />
                                 </div>
                             </>
                         )}
