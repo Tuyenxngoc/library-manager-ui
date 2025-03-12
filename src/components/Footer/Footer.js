@@ -33,7 +33,7 @@ function Footer() {
                             </li>
                         </ul>
 
-                        <SocialIcons />
+                        <SocialIcons url="http://localhost:3000" />
                     </div>
                 </div>
             </div>

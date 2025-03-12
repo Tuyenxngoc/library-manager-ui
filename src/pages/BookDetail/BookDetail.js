@@ -143,7 +143,7 @@ function BookDetail() {
 
                                         <div className={cx('share')}>
                                             <span>Share:</span>
-                                            <SocialIcons />
+                                            <SocialIcons url={`http://localhost:3000/books/${id}`} />
                                         </div>
 
                                         <div className={cx('description')}>

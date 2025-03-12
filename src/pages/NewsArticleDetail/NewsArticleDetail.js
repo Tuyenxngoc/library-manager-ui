@@ -138,7 +138,7 @@ function NewsArticleDetail() {
                                     </div>
                                     <div className={cx('tagsshare')}>
                                         <span>Share:</span>
-                                        <SocialIcons />
+                                        <SocialIcons url={`http://localhost:3000/news-articles/${id}`} />
                                     </div>
                                 </div>
                             </>
