@@ -1,42 +1,16 @@
 import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Button } from 'antd';
-import { FaShare } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Book.module.scss';
 import images from '~/assets';
-import { addToCart } from '~/services/cartService';
-import useAuth from '~/hooks/useAuth';
 
 const cx = classNames.bind(styles);
 
-function Book({ className, data, messageApi }) {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const { isAuthenticated } = useAuth();
-
-    const bookUrl = `/books/${data.id}`;
-
-    const handleAddToCart = async (id) => {
-        if (isAuthenticated) {
-            try {
-                const response = await addToCart(id);
-                if (response.status === 201) {
-                    messageApi.success(response.data.data.message);
-                }
-            } catch (error) {
-                const errorMessage = error.response?.data?.message || 'Có lỗi xảy ra khi mượn sách.';
-                messageApi.error(errorMessage);
-            }
-        } else {
-            navigate('/login', { replace: true, state: { from: location } });
-        }
-    };
-
+function Book({ className, data }) {
     return (
-        <div className={cx('postbook', className)}>
+        <div className={cx('wrapper', className)}>
             <div className={cx('featureimg')}>
-                <Link to={bookUrl}>
+                <Link to={`/books/${data.id}`}>
                     <img src={data.imageUrl || images.placeimg} alt={data.title} />
                 </Link>
                 <div className={cx('tags')}>
@@ -47,7 +21,7 @@ function Book({ className, data, messageApi }) {
 
             <div className={cx('content')}>
                 <div className={cx('title')}>
-                    <Link to={bookUrl}>{data.title}</Link>
+                    <Link to={`/books/${data.id}`}>{data.title}</Link>
                 </div>
 
                 <div className={cx('bookwriter')}>
@@ -66,10 +40,6 @@ function Book({ className, data, messageApi }) {
                         'Không xác định'
                     )}
                 </div>
-
-                <Button type="primary" shape="round" icon={<FaShare />} onClick={() => handleAddToCart(data.id)}>
-                    Đăng Ký Mượn
-                </Button>
             </div>
         </div>
     );

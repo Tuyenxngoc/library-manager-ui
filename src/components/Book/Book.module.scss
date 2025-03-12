@@ -1,4 +1,4 @@
-.postbook {
+.wrapper {
     overflow: hidden;
     padding: 5px;
     transition: all 0.3s ease;
@@ -78,7 +78,6 @@
 }
 
 .bookwriter {
-    margin-bottom: 5px;
     color: #666;
     &:hover a {
         color: #55acee;

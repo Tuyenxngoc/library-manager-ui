@@ -27,7 +27,8 @@ function NewsArticleList() {
                 const { items } = response.data.data;
                 setEntityData(items);
             } catch (error) {
-                setErrorMessage(error.message);
+                const errorMessage = error.response?.data?.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau.';
+                setErrorMessage(errorMessage);
             } finally {
                 setIsLoading(false);
             }

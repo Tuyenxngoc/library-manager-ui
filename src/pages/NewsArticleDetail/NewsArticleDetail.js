@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { FaRegCalendarAlt } from 'react-icons/fa';
 import { Parallax } from 'react-parallax';
-import { Button, Skeleton } from 'antd';
-import images, { backgrounds } from '~/assets';
+import { Skeleton } from 'antd';
+import { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
 import { getNewsArticleByTitleSlugForUser, getNewsArticlesForUser } from '~/services/newsArticlesService';
 import classNames from 'classnames/bind';
@@ -83,17 +82,11 @@ function NewsArticleDetail() {
                     <div className="col-4">
                         <div className="row">
                             <div className="col-12">
-                                <Button block>Các bài đã đăng</Button>
+                                <h5 className="section-title">Các bài đã đăng</h5>
                             </div>
                             {relatedArticles.map((data, index) => (
                                 <div className="col-12">
-                                    <NewsArticle
-                                        className="mx-2 my-1"
-                                        key={index}
-                                        data={data}
-                                        layout="horizontal"
-                                        contentVisible={false}
-                                    />
+                                    <NewsArticle className="mx-2 my-1" key={index} data={data} layout="horizontal" />
                                 </div>
                             ))}
                         </div>
@@ -109,20 +102,6 @@ function NewsArticleDetail() {
                             </div>
                         ) : (
                             <>
-                                <figure className={cx('newsdetailimg')}>
-                                    <img src={articleDetail.imageUrl || images.placeimg} alt="description" />
-
-                                    <figcaption className={cx('author')}>
-                                        <span className="bookwriter">Tác giả: Admin</span>
-                                        <ul className="postmetadata">
-                                            <li>
-                                                <FaRegCalendarAlt />
-                                                <i className="ms-2">{articleDetail.createdDate}</i>
-                                            </li>
-                                        </ul>
-                                    </figcaption>
-                                </figure>
-
                                 <div className={cx('newsdetail')}>
                                     <div className={cx('posttitle')}>
                                         <h3>{articleDetail.title}</h3>

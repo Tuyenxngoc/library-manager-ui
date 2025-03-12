@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { LiaCalendarSolid } from 'react-icons/lia';
-import { Tag } from 'antd';
-import { FaUser } from 'react-icons/fa';
+import { Tag, Tooltip } from 'antd';
 import dayjs from 'dayjs';
 import classNames from 'classnames/bind';
 import styles from './NewsArticle.module.scss';
@@ -9,13 +8,9 @@ import images from '~/assets';
 
 const cx = classNames.bind(styles);
 
-function NewsArticle({ className, data, layout = 'vertical', contentVisible = true }) {
-    const isNew = () => {
-        const currentDate = dayjs();
-        const postDate = dayjs(data.createdDate);
-        const diffDays = currentDate.diff(postDate, 'day');
-        return diffDays <= 7;
-    };
+function NewsArticle({ className, data, layout = 'vertical' }) {
+    const postDate = dayjs(data.createdDate);
+    const isNew = dayjs().diff(postDate, 'day') <= 7;
 
     return (
         <div
@@ -23,41 +18,32 @@ function NewsArticle({ className, data, layout = 'vertical', contentVisible = tr
                 horizontal: layout === 'horizontal',
             })}
         >
-            <div className={cx('postimg')}>
+            <div className={cx('image-wrapper')}>
                 <Link to={`/news-articles/${data.titleSlug}`}>
                     <img src={data.image || images.placeimgHorizontal} alt={data.id} />
                 </Link>
             </div>
 
-            <div className={cx('postcontent')}>
-                <ul className={cx('bookscategories')}>
+            <div className={cx('content')}>
+                <ul className={cx('metaInfo')}>
                     <li>
                         <Link to={`/news-articles/${data.titleSlug}`} className="d-flex align-items-center">
                             <LiaCalendarSolid />
                             {data.createdDate}
                         </Link>
                     </li>
-                    {isNew() && (
+                    {isNew && (
                         <li className="ms-2">
-                            <Tag color="red">Mới nhất</Tag>
+                            <Tag color="lime">Mới nhất</Tag>
                         </li>
                     )}
                 </ul>
 
-                <div className={cx('posttitle')}>
-                    <Link to={`/news-articles/${data.titleSlug}`}>{data.title}</Link>
+                <div className={cx('title')}>
+                    <Tooltip title={data.title}>
+                        <Link to={`/news-articles/${data.titleSlug}`}>{data.title}</Link>
+                    </Tooltip>
                 </div>
-
-                {contentVisible && (
-                    <>
-                        <span className={cx('bookwriter')}>
-                            <FaUser />
-                            Tác giả:&nbsp;{data.author}
-                        </span>
-
-                        <div className={cx('postdes')}>{data.description}</div>
-                    </>
-                )}
             </div>
         </div>
     );

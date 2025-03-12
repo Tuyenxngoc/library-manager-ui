@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Button } from 'antd';
 import { Parallax } from 'react-parallax';
 import { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
@@ -63,10 +62,10 @@ function News() {
 
             <div className="container sectionspace">
                 <div className="row mb-4">
-                    <div className="col-3">
-                        <Button block>Phân loại tin tức</Button>
+                    <div className="col-lg-4 col-md-5 col-12">
+                        <h5 className="section-title">Phân loại tin tức</h5>
                     </div>
-                    <div className="col-9">
+                    <div className="col-lg-8 col-md-7 col-12">
                         <SectionHeader
                             title={<h2 className="mb-0">Danh sách tin tức</h2>}
                             subtitle="Tin tức và bài viết mới nhất"
