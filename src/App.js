@@ -69,7 +69,7 @@ import LibraryInfo from './pages/Admin/setting/LibraryInfo';
 import LibraryRules from './pages/Admin/setting/LibraryRules';
 import Holidays from './pages/Admin/setting/Holidays';
 import General from './pages/Admin/setting/General';
-import Slide from './pages/Admin/setting/Slide';
+import SliderConfig from './pages/Admin/setting/SliderConfig';
 
 function App() {
     return (
@@ -142,7 +142,7 @@ function App() {
                             <Route path="holidays" element={<Holidays />} />
                             <Route path="library-info" element={<LibraryInfo />} />
                             <Route path="library-rules" element={<LibraryRules />} />
-                            <Route path="slide" element={<Slide />} />
+                            <Route path="slider" element={<SliderConfig />} />
                         </Route>
 
                         {/* Quản lý người dùng */}

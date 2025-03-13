@@ -6,7 +6,7 @@ import { AiFillDashboard } from 'react-icons/ai';
 import { IoMdSettings, IoIosLogOut } from 'react-icons/io';
 import { BsNewspaper } from 'react-icons/bs';
 import { BiCategory } from 'react-icons/bi';
-import { FaUsers, FaUser, FaHistory, FaRecycle, FaBook, FaAngleDown } from 'react-icons/fa';
+import { FaUsers, FaUser, FaHistory, FaRecycle, FaBook, FaAngleDown, FaChartBar } from 'react-icons/fa';
 import images from '~/assets';
 import { checkUserHasRequiredRole } from '~/utils/helper';
 import { ROLES } from '~/constants/roleConstants';
@@ -30,7 +30,7 @@ const menuConfig = [
             { label: 'Nội quy thư viện', key: '/admin/settings/library-rules' },
             { label: 'Kì nghỉ ngày lễ', key: '/admin/settings/holidays' },
             { label: 'Cấu hình chung', key: '/admin/settings/general' },
-            { label: 'Thiết lập Slide', key: '/admin/settings/slide' },
+            { label: 'Thiết lập Slide', key: '/admin/settings/slider' },
         ],
     },
     {
@@ -84,7 +84,7 @@ const menuConfig = [
         children: [
             { label: 'Danh sách sách', key: '/admin/books/list', roles: [ROLES.ManageBook] },
             { label: 'Nhập sách', key: '/admin/books/inward', roles: [ROLES.ManageImportReceipt] },
-            // { label: 'Kiểm kê sách', key: '/admin/books/inventory', roles: [ROLES.ManageBook] },
+            { label: 'Kiểm kê sách', key: '/admin/books/inventory', roles: [ROLES.ManageBook] },
             { label: 'Xuất sách', key: '/admin/books/outward', roles: [ROLES.ManageExportReceipt] },
         ],
     },
@@ -99,12 +99,12 @@ const menuConfig = [
             { label: 'Lịch sử trả sách', key: '/admin/circulation/return-history' },
         ],
     },
-    // {
-    //     label: 'Thống kê báo cáo',
-    //     key: '/admin/reports',
-    //     icon: <FaChartBar />,
-    //     children: [{ label: 'Báo cáo', key: '/admin/reports/statistics' }],
-    // },
+    {
+        label: 'Thống kê báo cáo',
+        key: '/admin/reports',
+        icon: <FaChartBar />,
+        children: [{ label: 'Báo cáo', key: '/admin/reports/statistics' }],
+    },
     {
         label: 'Quản lý tin tức',
         key: '/admin/news-articles',

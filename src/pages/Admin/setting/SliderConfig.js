@@ -8,7 +8,7 @@ import { addSlide, deleteSlide, getSlides, toggleActiveFlagSlide, updateSlide } 
 
 const { TextArea } = Input;
 
-function Slide() {
+function SliderConfig() {
     const [entityData, setEntityData] = useState(null);
 
     const [isLoading, setIsLoading] = useState(true);
@@ -365,4 +365,4 @@ function Slide() {
     );
 }
 
-export default Slide;
+export default SliderConfig;
