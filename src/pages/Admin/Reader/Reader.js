@@ -7,7 +7,7 @@ import queryString from 'query-string';
 import dayjs from 'dayjs';
 import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { createReader, deleteReader, getReaders, printCards, updateReader } from '~/services/readerService';
-import ReaderForm from '~/pages/ReaderForm';
+import ReaderForm from '~/pages/Admin/ReaderForm';
 import { cardGender, cardStatus, cardTypes } from '~/constants/cardConstants';
 
 const options = [
