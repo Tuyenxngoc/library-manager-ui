@@ -10,7 +10,7 @@ import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { getReaders } from '~/services/readerService';
 import { createReaderViolation, deleteReaderViolation } from '~/services/readerViolationsService';
 import { getReaderViolations, updateReaderViolation } from '~/services/readerViolationsService';
-import ViolationForm from '~/pages/Admin/ViolationForm';
+import ViolationForm from './ViolationForm';
 
 const options = [
     { value: 'cardNumber', label: 'Số thẻ' },

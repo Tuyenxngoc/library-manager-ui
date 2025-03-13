@@ -29,8 +29,8 @@ const menuConfig = [
             { label: 'Thông tin thư viện', key: '/admin/settings/library-info' },
             { label: 'Nội quy thư viện', key: '/admin/settings/library-rules' },
             { label: 'Kì nghỉ ngày lễ', key: '/admin/settings/holidays' },
-            { label: 'Cấu hình chung', key: '/admin/settings/general-config' },
-            { label: 'Thiết lập Slide', key: '/admin/settings/slide-config' },
+            { label: 'Cấu hình chung', key: '/admin/settings/general' },
+            { label: 'Thiết lập Slide', key: '/admin/settings/slide' },
         ],
     },
     {

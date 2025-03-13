@@ -24,7 +24,7 @@ const getTagByEvent = (event) => {
     }
 };
 
-function History() {
+function Log() {
     const [meta, setMeta] = useState(INITIAL_META);
     const [filters, setFilters] = useState({
         ...INITIAL_FILTERS,
@@ -208,4 +208,4 @@ function History() {
     );
 }
 
-export default History;
+export default Log;

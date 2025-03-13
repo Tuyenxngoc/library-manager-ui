@@ -2,13 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import { Alert, Spin } from 'antd';
-import classNames from 'classnames/bind';
-import styles from './NewsArticleList.module.scss';
 import NewsArticle from '~/components/NewsArticle';
 import SectionHeader from '~/components/SectionHeader';
 import { getNewsArticlesForUser } from '~/services/newsArticlesService';
-
-const cx = classNames.bind(styles);
 
 function NewsArticleList() {
     const sliderRef = useRef(null);
@@ -60,7 +56,7 @@ function NewsArticleList() {
     };
 
     return (
-        <section className={cx('wrapper', 'sectionspace')}>
+        <section className="sectionspace">
             <div className="container">
                 <div className="row mb-3">
                     <div className="col-12">

@@ -9,12 +9,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import Book from '~/components/Book';
 import SectionHeader from '~/components/SectionHeader';
 
-import classNames from 'classnames/bind';
-import styles from './BookList.module.scss';
 import { getBookByBookDefinitionsForUser } from '~/services/bookDefinitionService';
 import queryString from 'query-string';
-
-const cx = classNames.bind(styles);
 
 function BookList({ filters, title, subtitle, messageApi, fetchData = getBookByBookDefinitionsForUser }) {
     const sliderRef = useRef(null);
@@ -71,7 +67,7 @@ function BookList({ filters, title, subtitle, messageApi, fetchData = getBookByB
     }, [fetchData, filters]);
 
     return (
-        <section className={cx('wrapper', 'sectionspace')}>
+        <section className="sectionspace">
             <div className="container">
                 <div className="row mb-3">
                     <div className="col-12">

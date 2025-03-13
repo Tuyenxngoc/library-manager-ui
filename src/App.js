@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import DefaultLayout from './layouts/DefaultLayout';
+import AdminLayout from './layouts/AdminLayout';
 
 import RequireAuth from './routes/RequireAuth';
 import { ROLES } from './constants/roleConstants';
@@ -8,8 +9,9 @@ import { ROLES } from './constants/roleConstants';
 import AccessDenied from './pages/common/AccessDenied';
 import NotFound from './pages/common/NotFound';
 
-import Home from './pages/User/Home';
+import Login from './pages/User/Login';
 import ForgotPassword from './pages/User/ForgotPassword';
+import Home from './pages/User/Home';
 import News from './pages/User/News';
 import About from './pages/User/About';
 import HolidaySchedule from './pages/User/HolidaySchedule';
@@ -22,45 +24,52 @@ import NewsArticleDetail from './pages/User/NewsArticleDetail';
 import UserProfile from './pages/User/UserProfile';
 import BorrowedItems from './pages/User/BorrowedItems';
 import BorrowHistory from './pages/User/BorrowHistory';
-import Login from './pages/User/Login';
 
-import AdminLayout from './layouts/AdminLayout';
-
-import AdminLogin from './pages/Admin/AdminLogin';
-import AdminForgotPassword from './pages/Admin/AdminForgotPassword';
-import Author from './pages/Admin/Author';
-import AuthorForm from './pages/Admin/AuthorForm';
+import AdminLogin from './pages/Admin/Login';
+import AdminForgotPassword from './pages/Admin/ForgotPassword';
 import BookSet from './pages/Admin/BookSet';
 import Category from './pages/Admin/Category';
 import Publisher from './pages/Admin/Publisher';
-import BookDefinition from './pages/Admin/BookDefinition';
-import BookDefinitionForm from './pages/Admin/BookDefinitionForm';
 import ClassificationSymbol from './pages/Admin/ClassificationSymbol';
 import History from './pages/Admin/Log';
-import InwardBook from './pages/Admin/InwardBook';
-import OutwardBook from './pages/Admin/OutwardBook';
-import InwardBookForm from './pages/Admin/InwardBookForm';
 import BookList from './pages/Admin/BookList';
 import InventoryBook from './pages/Admin/InventoryBook';
-import OutwardBookForm from './pages/Admin/OutwardBookForm';
-import NewsArticles from './pages/Admin/NewsArticles';
-import NewsArticlesForm from './pages/Admin/NewsArticlesForm';
-import Dashboard from './pages/Admin/Dashboard';
-import LibraryInfo from './pages/Admin/LibraryInfo';
-import LibraryRules from './pages/Admin/LibraryRules';
-import Holidays from './pages/Admin/Holidays';
 import User from './pages/Admin/User';
-import UserForm from './pages/Admin/UserForm';
+import UserForm from './pages/Admin/User/UserForm';
 import UserGroup from './pages/Admin/UserGroup';
+import Dashboard from './pages/Admin/Dashboard';
 import Reader from './pages/Admin/Reader';
 import LibraryVisit from './pages/Admin/LibraryVisit';
 import VisitorStatistics from './pages/Admin/VisitorStatistics';
 import ReaderViolations from './pages/Admin/ReaderViolations';
-import BorrowBook from './pages/Admin/BorrowBook';
 import ReturnRenewBook from './pages/Admin/ReturnRenewBook';
-import BorrowBookForm from './pages/Admin/BorrowBookForm';
+
+import Author from './pages/Admin/Author';
+import AuthorForm from './pages/Admin/Author/AuthorForm';
+
+import BookDefinition from './pages/Admin/BookDefinition';
+import BookDefinitionForm from './pages/Admin/BookDefinition/BookDefinitionForm';
+
+import InwardBook from './pages/Admin/InwardBook';
+import InwardBookForm from './pages/Admin/InwardBook/InwardBookForm';
+
+import OutwardBook from './pages/Admin/OutwardBook';
+import OutwardBookForm from './pages/Admin/OutwardBook/OutwardBookForm';
+
+import NewsArticles from './pages/Admin/NewsArticles';
+import NewsArticlesForm from './pages/Admin/NewsArticles/NewsArticlesForm';
+
+import BorrowBook from './pages/Admin/BorrowBook';
+import BorrowBookForm from './pages/Admin/BorrowBook/BorrowBookForm';
+
 import BorrowRequests from './pages/Admin/BorrowRequests';
 import ReturnHistory from './pages/Admin/ReturnHistory';
+
+import LibraryInfo from './pages/Admin/setting/LibraryInfo';
+import LibraryRules from './pages/Admin/setting/LibraryRules';
+import Holidays from './pages/Admin/setting/Holidays';
+import General from './pages/Admin/setting/General';
+import Slide from './pages/Admin/setting/Slide';
 
 function App() {
     return (
