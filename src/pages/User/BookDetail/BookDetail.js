@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { Alert, Button, message, Spin, Tabs } from 'antd';
+import { Alert, message, Spin, Tabs } from 'antd';
 import { Parallax } from 'react-parallax';
 import images, { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
@@ -11,6 +11,7 @@ import SocialIcons from '~/components/SocialIcons';
 import { getBookDetailForUser } from '~/services/bookDefinitionService';
 import { addToCart } from '~/services/cartService';
 import useAuth from '~/hooks/useAuth';
+import ReviewSection from './ReviewSection';
 
 const cx = classNames.bind(styles);
 
@@ -140,6 +141,7 @@ function BookDetail() {
                                             alt=""
                                         />
                                     </div>
+
                                     <div className="col-9">
                                         <ul className={cx('category')}>
                                             <li>Số lượng sách còn trong thư viện: {entityData.bookCount}</li>
@@ -175,6 +177,7 @@ function BookDetail() {
                                             </p>
                                         </div>
                                     </div>
+
                                     <div className="col-12">
                                         <SectionHeader title={<h5 className="mb-0">Chi tiết sách</h5>} />
 
@@ -205,8 +208,13 @@ function BookDetail() {
                                             </li>
                                         </ul>
                                     </div>
+
                                     <div className="col-12">
                                         <Tabs defaultActiveKey="1" items={tabItems} onChange={onChangeTab} />
+                                    </div>
+
+                                    <div className="col-12">
+                                        <ReviewSection bookDefinitionId={id} />
                                     </div>
                                 </div>
                             </div>
