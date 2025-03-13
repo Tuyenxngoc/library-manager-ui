@@ -31,7 +31,7 @@ import BookSet from './pages/Admin/BookSet';
 import Category from './pages/Admin/Category';
 import Publisher from './pages/Admin/Publisher';
 import ClassificationSymbol from './pages/Admin/ClassificationSymbol';
-import History from './pages/Admin/Log';
+import Log from './pages/Admin/Log';
 import BookList from './pages/Admin/BookList';
 import InventoryBook from './pages/Admin/InventoryBook';
 import User from './pages/Admin/User';
@@ -244,7 +244,7 @@ function App() {
 
                         {/* Lịch sử */}
                         <Route path="histories">
-                            <Route index element={<History />} />
+                            <Route index element={<Log />} />
                         </Route>
                     </Route>
                 </Route>
