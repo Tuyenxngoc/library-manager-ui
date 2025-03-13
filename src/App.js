@@ -36,7 +36,7 @@ import Publisher from './pages/Admin/Publisher';
 import BookDefinition from './pages/Admin/BookDefinition';
 import BookDefinitionForm from './pages/Admin/BookDefinitionForm';
 import ClassificationSymbol from './pages/Admin/ClassificationSymbol';
-import History from './pages/Admin/History';
+import History from './pages/Admin/Log';
 import InwardBook from './pages/Admin/InwardBook';
 import OutwardBook from './pages/Admin/OutwardBook';
 import InwardBookForm from './pages/Admin/InwardBookForm';
