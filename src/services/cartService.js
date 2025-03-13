@@ -1,7 +1,7 @@
 import { axiosPrivate } from '~/utils/httpRequest';
 
-export const addToCart = (bookId) => {
-    return axiosPrivate.post(`carts/add?bookId=${bookId}`);
+export const addToCart = (bookCode) => {
+    return axiosPrivate.post(`carts/add?bookCode=${bookCode}`);
 };
 
 export const getCartDetails = (params) => {

@@ -25,7 +25,7 @@ const defaultValue = {
     classificationSymbolId: null,
     publisherId: null,
     publicationPlace: '',
-    bookCode: '',
+    bookNumber: '',
     publishingYear: '',
     edition: '',
     pageCount: null,
@@ -62,7 +62,7 @@ const validationSchema = yup.object({
 
     publicationPlace: yup.string().nullable(),
 
-    bookCode: yup.string().required('Kí hiệu tên sách là bắt buộc'),
+    bookNumber: yup.string().required('Kí hiệu tên sách là bắt buộc'),
 
     publishingYear: yup
         .number()
@@ -281,7 +281,7 @@ const BookDefinitionForm = ({ mode }) => {
                         edition = '',
                         referencePrice = '',
                         publicationPlace = '',
-                        bookCode = '',
+                        bookNumber = '',
                         pageCount = '',
                         bookSize = '',
                         parallelTitle = '',
@@ -305,7 +305,7 @@ const BookDefinitionForm = ({ mode }) => {
                         price,
                         referencePrice,
                         publicationPlace,
-                        bookCode,
+                        bookNumber,
                         publishingYear,
                         edition,
                         bookSize,
@@ -403,7 +403,7 @@ const BookDefinitionForm = ({ mode }) => {
                             />
 
                             <FormInput
-                                id="bookCode"
+                                id="bookNumber"
                                 label="Kí hiệu tên sách"
                                 formik={formik}
                                 className="col-md-4"

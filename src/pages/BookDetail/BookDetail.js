@@ -27,15 +27,15 @@ function BookDetail() {
 
     const [messageApi, contextHolder] = message.useMessage();
 
-    const handleAddToCart = async (id) => {
+    const handleAddToCart = async (bookCode) => {
         if (isAuthenticated) {
             try {
-                const response = await addToCart(id);
+                const response = await addToCart(bookCode);
                 if (response.status === 201) {
                     messageApi.success(response.data.data.message);
                 }
             } catch (error) {
-                const errorMessage = error.response?.data?.message || 'Có lỗi xảy ra khi mượn sách.';
+                const errorMessage = error.response?.data?.message || 'Đã có lỗi xảy ra. Vui lòng thử lại sau';
                 messageApi.error(errorMessage);
             }
         } else {
@@ -43,7 +43,7 @@ function BookDetail() {
         }
     };
 
-    const onChange = (key) => {
+    const onChangeTab = (key) => {
         console.log(key);
     };
 
@@ -132,16 +132,13 @@ function BookDetail() {
                             </div>
                         ) : (
                             <div className={cx('content')}>
-                                <div className="row">
+                                <div className="row g-3">
                                     <div className="col-3">
                                         <img
                                             className={cx('image')}
                                             src={entityData.imageUrl || images.placeimg}
                                             alt=""
                                         />
-                                        <Button type="primary" block onClick={() => handleAddToCart(entityData.id)}>
-                                            Đăng ký mượn
-                                        </Button>
                                     </div>
                                     <div className="col-9">
                                         <ul className={cx('category')}>
@@ -170,13 +167,15 @@ function BookDetail() {
                                         </div>
 
                                         <div className={cx('description')}>
+                                            <h4>Tóm tắt nội dung</h4>
                                             <p>
                                                 {entityData.summary
                                                     ? entityData.summary
                                                     : 'Chưa có mô tả cho cuốn sách này'}
                                             </p>
                                         </div>
-
+                                    </div>
+                                    <div className="col-12">
                                         <SectionHeader title={<h5 className="mb-0">Chi tiết sách</h5>} />
 
                                         <ul className={cx('info')}>
@@ -207,7 +206,7 @@ function BookDetail() {
                                         </ul>
                                     </div>
                                     <div className="col-12">
-                                        <Tabs defaultActiveKey="1" items={tabItems} onChange={onChange} />
+                                        <Tabs defaultActiveKey="1" items={tabItems} onChange={onChangeTab} />
                                     </div>
                                 </div>
                             </div>
