@@ -52,7 +52,7 @@ function HolidaySchedule() {
 
     return (
         <>
-            <Parallax bgImage={backgrounds.bgparallax7} strength={500}>
+            <Parallax bgImage={backgrounds.bgparallax4} strength={500}>
                 <div className="innerbanner">
                     <div className="container">
                         <div className="row justify-content-center">
