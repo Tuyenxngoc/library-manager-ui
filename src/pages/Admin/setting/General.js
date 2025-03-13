@@ -36,7 +36,7 @@ const validationSchema = yup.object({
         .required('Số ngày gia hạn tối đa là bắt buộc.'),
 });
 
-function GeneralConfig() {
+function General() {
     const [messageApi, contextHolder] = message.useMessage();
 
     const handleSubmit = async (values, { setSubmitting }) => {
@@ -211,4 +211,4 @@ function GeneralConfig() {
     );
 }
 
-export default GeneralConfig;
+export default General;

@@ -25,6 +25,7 @@ import BorrowHistory from './pages/User/BorrowHistory';
 import Login from './pages/User/Login';
 
 import AdminLayout from './layouts/AdminLayout';
+
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminForgotPassword from './pages/Admin/AdminForgotPassword';
 import Author from './pages/Admin/Author';
@@ -48,8 +49,6 @@ import Dashboard from './pages/Admin/Dashboard';
 import LibraryInfo from './pages/Admin/LibraryInfo';
 import LibraryRules from './pages/Admin/LibraryRules';
 import Holidays from './pages/Admin/Holidays';
-import GeneralConfig from './pages/Admin/GeneralConfig';
-import SlideConfig from './pages/Admin/SlideConfig';
 import User from './pages/Admin/User';
 import UserForm from './pages/Admin/UserForm';
 import UserGroup from './pages/Admin/UserGroup';
@@ -130,11 +129,11 @@ function App() {
 
                         {/* Thiết lập hệ thống */}
                         <Route path="settings">
+                            <Route path="general" element={<General />} />
+                            <Route path="holidays" element={<Holidays />} />
                             <Route path="library-info" element={<LibraryInfo />} />
                             <Route path="library-rules" element={<LibraryRules />} />
-                            <Route path="holidays" element={<Holidays />} />
-                            <Route path="general-config" element={<GeneralConfig />} />
-                            <Route path="slide-config" element={<SlideConfig />} />
+                            <Route path="slide" element={<Slide />} />
                         </Route>
 
                         {/* Quản lý người dùng */}
