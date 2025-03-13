@@ -9,7 +9,7 @@ import useAuth from '~/hooks/useAuth';
 import queryString from 'query-string';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import { ROLES } from '~/common/roleConstants';
+import { ROLES } from '~/constants/roleConstants';
 import images from '~/assets';
 
 const cx = classNames.bind(styles);

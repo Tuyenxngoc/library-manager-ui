@@ -9,7 +9,7 @@ import { BiCategory } from 'react-icons/bi';
 import { FaUsers, FaUser, FaHistory, FaRecycle, FaBook, FaAngleDown } from 'react-icons/fa';
 import images from '~/assets';
 import { checkUserHasRequiredRole } from '~/utils/helper';
-import { ROLES } from '~/common/roleConstants';
+import { ROLES } from '~/constants/roleConstants';
 import useAuth from '~/hooks/useAuth';
 
 const { Header, Content, Footer, Sider } = Layout;

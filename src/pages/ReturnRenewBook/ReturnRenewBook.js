@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Alert, Button, Flex, Input, message, Modal, Select, Space, Table } from 'antd';
 import queryString from 'query-string';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { getBookBorrows, reportLostBooks, returnBooks } from '~/services/bookBorrowService';
 
 const options = [

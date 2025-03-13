@@ -6,7 +6,7 @@ import { Alert, Button, Col, Descriptions, Flex, Form, Image, Input, message, Ro
 import { IoMdPersonAdd } from 'react-icons/io';
 import { FaRegClock, FaList, FaSignOutAlt } from 'react-icons/fa';
 import images from '~/assets';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { closeLibrary, createLibraryVisit, getLibraryVisits } from '~/services/libraryVisitService';
 import { getReaderByCardNumber } from '~/services/readerService';
 

@@ -3,7 +3,7 @@ import { Button, message } from 'antd';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.core.css';
-import { formats, modules as defaultModules } from '~/common/editorConfig';
+import { formats, modules as defaultModules } from '~/constants/editorConfig';
 import { getLibraryRules, updateLibraryRules } from '~/services/systemSettingService';
 import { uploadImages } from '~/services/userService';
 

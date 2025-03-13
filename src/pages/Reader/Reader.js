@@ -5,10 +5,10 @@ import { MdOutlineModeEdit } from 'react-icons/md';
 import { FaRegTrashAlt, FaPrint } from 'react-icons/fa';
 import queryString from 'query-string';
 import dayjs from 'dayjs';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { createReader, deleteReader, getReaders, printCards, updateReader } from '~/services/readerService';
 import ReaderForm from '~/pages/ReaderForm';
-import { cardGender, cardStatus, cardTypes } from '~/common/cardConstants';
+import { cardGender, cardStatus, cardTypes } from '~/constants/cardConstants';
 
 const options = [
     { value: 'cardNumber', label: 'Số thẻ' },

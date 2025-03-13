@@ -4,7 +4,7 @@ import { Alert, Button, Flex, Input, message, Popconfirm, Select, Space, Table }
 import { MdOutlineModeEdit } from 'react-icons/md';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import queryString from 'query-string';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { deleteUser, getUsers } from '~/services/userService';
 
 const options = [

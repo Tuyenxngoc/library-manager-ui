@@ -7,7 +7,7 @@ import { RiFileCopyLine } from 'react-icons/ri';
 
 import queryString from 'query-string';
 
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { deleteBookDefinition, getBookDefinitions, toggleActiveFlag } from '~/services/bookDefinitionService';
 
 const options = [

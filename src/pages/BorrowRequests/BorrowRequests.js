@@ -4,7 +4,7 @@ import { Alert, Button, Flex, Input, Select, Space, Table } from 'antd';
 
 import queryString from 'query-string';
 
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { getPendingBorrowRequests } from '~/services/cartService';
 
 const options = [

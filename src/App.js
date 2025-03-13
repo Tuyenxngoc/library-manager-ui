@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DefaultLayout from './layouts/DefaultLayout';
 
 import RequireAuth from './routes/RequireAuth';
-import { ROLES } from './common/roleConstants';
+import { ROLES } from './constants/roleConstants';
 
 import Home from './pages/Home';
 import ForgotPassword from './pages/ForgotPassword';

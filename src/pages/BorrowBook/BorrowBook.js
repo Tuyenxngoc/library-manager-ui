@@ -1,6 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { Alert, Button, Drawer, Dropdown, Flex, Input, Menu, message, Popconfirm, Select, Space, Table, Tag } from 'antd';
+import {
+    Alert,
+    Button,
+    Drawer,
+    Dropdown,
+    Flex,
+    Input,
+    Menu,
+    message,
+    Popconfirm,
+    Select,
+    Space,
+    Table,
+    Tag,
+} from 'antd';
 import { MdOutlineModeEdit } from 'react-icons/md';
 import { FaRegTrashAlt, FaPrint } from 'react-icons/fa';
 import { GrPrint } from 'react-icons/gr';
@@ -8,7 +22,7 @@ import { IoIosMore } from 'react-icons/io';
 import { CiExport } from 'react-icons/ci';
 import { MdOutlineCancel } from 'react-icons/md';
 import queryString from 'query-string';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import {
     cancelReturn,
     deleteBorrowReceipt,
@@ -18,7 +32,7 @@ import {
     printBorrowReceiptOverdues,
     printBorrowReceipts,
 } from '~/services/borrowReceiptService';
-import { bookBorrowReceiptMapping } from '~/common/borrowConstants';
+import { bookBorrowReceiptMapping } from '~/constants/borrowConstants';
 
 const options = [
     { value: 'receiptNumber', label: 'Số phiếu mượn' },

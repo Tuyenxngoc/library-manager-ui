@@ -6,7 +6,7 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 
 import queryString from 'query-string';
 
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants';
 import { deleteAuthor, getAuthors, toggleActiveFlag } from '~/services/authorService';
 
 const genderTags = {

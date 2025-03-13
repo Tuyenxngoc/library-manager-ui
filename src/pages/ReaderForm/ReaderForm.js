@@ -3,8 +3,8 @@ import { Image, Input, Modal, Row, Select } from 'antd';
 import { Button, Col, DatePicker, Form, Upload } from 'antd';
 import { MdOutlineFileUpload } from 'react-icons/md';
 import images from '~/assets';
-import { REGEXP_FULL_NAME, REGEXP_PASSWORD, REGEXP_PHONE_NUMBER } from '~/common/commonConstants';
-import { cardGender, cardStatus, cardTypes } from '~/common/cardConstants';
+import { REGEXP_FULL_NAME, REGEXP_PASSWORD, REGEXP_PHONE_NUMBER } from '~/constants/commonConstants';
+import { cardGender, cardStatus, cardTypes } from '~/constants/cardConstants';
 
 function ReaderForm({
     title,

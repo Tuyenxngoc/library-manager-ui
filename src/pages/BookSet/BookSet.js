@@ -3,7 +3,7 @@ import { Alert, Button, Flex, Form, Input, message, Modal, Popconfirm, Space, Sw
 import { MdOutlineModeEdit } from 'react-icons/md';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import queryString from 'query-string';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { createBookSet, deleteBookSet, getBookSets, toggleActiveFlag, updateBookSet } from '~/services/bookSetService';
 
 function BookSet() {

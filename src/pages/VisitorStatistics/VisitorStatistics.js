@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 import { Alert, Button, Col, DatePicker, Flex, Form, message, Row, Space, Table } from 'antd';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { getLibraryVisits } from '~/services/libraryVisitService';
 
 function VisitorStatistics() {

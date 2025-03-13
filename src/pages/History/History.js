@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import queryString from 'query-string';
 import { Alert, Button, DatePicker, Flex, Input, Select, Space, Table, Tag } from 'antd';
 import { getLogs } from '~/services/logService';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 
 const options = [
     { value: 'user', label: 'Người dùng' },

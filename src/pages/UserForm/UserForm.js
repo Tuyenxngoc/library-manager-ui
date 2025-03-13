@@ -11,7 +11,7 @@ import FormTextArea from '~/components/FormTextArea';
 import FormSelect from '~/components/FormSelect';
 import { getUserGroups } from '~/services/userGroupService';
 import { createUser, getUserById, updateUser } from '~/services/userService';
-import { REGEXP_FULL_NAME, REGEXP_PASSWORD, REGEXP_PHONE_NUMBER, REGEXP_USERNAME } from '~/common/commonConstants';
+import { REGEXP_FULL_NAME, REGEXP_PASSWORD, REGEXP_PHONE_NUMBER, REGEXP_USERNAME } from '~/constants/commonConstants';
 
 const statusOptions = [
     { value: 'ACTIVATED', label: 'Đã kích hoạt' },

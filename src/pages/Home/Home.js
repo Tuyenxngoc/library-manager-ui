@@ -17,7 +17,7 @@ import NewsArticleList from '~/components/NewsArticleList';
 import { getLibraryInfoStats } from '~/services/statisticsService';
 import { getRecommendBookDefinitions } from '~/services/bookDefinitionService';
 import { useNavigate } from 'react-router-dom';
-import { ROLES } from '~/common/roleConstants';
+import { ROLES } from '~/constants/roleConstants';
 import useAuth from '~/hooks/useAuth';
 
 const cx = classNames.bind(styles);

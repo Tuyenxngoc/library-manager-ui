@@ -7,8 +7,8 @@ import { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
 import SectionHeader from '~/components/SectionHeader';
 import { getBorrowReceiptsForReader } from '~/services/borrowReceiptService';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
-import { bookBorrowReceiptMapping } from '~/common/borrowConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
+import { bookBorrowReceiptMapping } from '~/constants/borrowConstants';
 
 const options = [{ value: 'receiptNumber', label: 'Số phiếu' }];
 

@@ -3,7 +3,7 @@ import { Alert, Button, Dropdown, Input, Select, Space, Table } from 'antd';
 import { FaPrint } from 'react-icons/fa';
 import { GrPrint } from 'react-icons/gr';
 import queryString from 'query-string';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import {
     getBooks,
     getBookLabelType1Pdf,

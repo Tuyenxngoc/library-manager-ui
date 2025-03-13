@@ -1,6 +1,6 @@
 import { Button, Col, DatePicker, Form } from 'antd';
 import { Input, InputNumber, Modal, Row, Select } from 'antd';
-import { cardPenaltyForm } from '~/common/cardConstants';
+import { cardPenaltyForm } from '~/constants/cardConstants';
 
 function ViolationForm({
     title,

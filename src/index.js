@@ -11,7 +11,7 @@ import { LibraryProvider } from './contexts/LibraryProvider';
 
 import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Global.scss';
+import './assets/styles/Global.scss';
 
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 

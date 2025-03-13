@@ -11,7 +11,7 @@ import images from '~/assets';
 import { handleError } from '~/utils/errorHandler';
 import { checkIdIsNumber } from '~/utils/helper';
 import FormInput from '~/components/FormInput';
-import { formats, modules as defaultModules } from '~/common/editorConfig';
+import { formats, modules as defaultModules } from '~/constants/editorConfig';
 import FormTextArea from '~/components/FormTextArea';
 import { createNewsArticle, getNewsArticleById, updateNewsArticle } from '~/services/newsArticlesService';
 import { uploadImages } from '~/services/userService';

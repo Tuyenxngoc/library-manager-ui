@@ -7,7 +7,7 @@ import { backgrounds } from '~/assets';
 import Breadcrumb from '~/components/Breadcrumb';
 import Book from '~/components/Book';
 import SectionHeader from '~/components/SectionHeader';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { getBookByBookDefinitionsForUser } from '~/services/bookDefinitionService';
 
 const options = [

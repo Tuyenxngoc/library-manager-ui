@@ -9,7 +9,7 @@ import Breadcrumb from '~/components/Breadcrumb';
 import SectionHeader from '~/components/SectionHeader';
 import BasicSearchForm from './BasicSearchForm';
 import AdvancedSearchForm from './AdvancedSearchForm';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { advancedSearchBooks, searchBooks } from '~/services/bookDefinitionService';
 import { getLibraryInfoStats } from '~/services/statisticsService';
 

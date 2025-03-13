@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { Alert, Button, DatePicker, Flex, Input, message, Select, Space, Table } from 'antd';
 import queryString from 'query-string';
 import dayjs from 'dayjs';
-import { INITIAL_FILTERS, INITIAL_META } from '~/common/commonConstants';
+import { INITIAL_FILTERS, INITIAL_META } from '~/constants/commonConstants';
 import { getBookBorrows } from '~/services/bookBorrowService';
-import { bookBorrowReceiptMapping } from '~/common/borrowConstants';
+import { bookBorrowReceiptMapping } from '~/constants/borrowConstants';
 
 const options = [
     { value: 'receiptNumber', label: 'Số phiếu mượn' },

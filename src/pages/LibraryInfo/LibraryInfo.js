@@ -5,7 +5,7 @@ import ReactQuill from 'react-quill';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { handleError } from '~/utils/errorHandler';
-import { formats, modules as defaultModules } from '~/common/editorConfig';
+import { formats, modules as defaultModules } from '~/constants/editorConfig';
 import { getLibraryInfo, updateLibraryInfo } from '~/services/systemSettingService';
 import { uploadImages } from '~/services/userService';
 const { TextArea } = Input;

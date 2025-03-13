@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { refreshTokenAPI } from '~/services/authService';
-import { ACCESS_TOKEN, API_URL, REFRESH_TOKEN } from '~/common/commonConstants';
+import { ACCESS_TOKEN, API_URL, REFRESH_TOKEN } from '~/constants/commonConstants';
 
 const httpRequest = axios.create({
     baseURL: API_URL,

@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import { readerLogin } from '~/services/authService';
 import useAuth from '~/hooks/useAuth';
 import { handleError } from '~/utils/errorHandler';
-import { ROLES } from '~/common/roleConstants';
+import { ROLES } from '~/constants/roleConstants';
 
 const validationSchema = yup.object({
     cardNumber: yup.string().trim().required('Vui lòng nhập số thẻ'),
