@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { List, Input, Button, message, Rate } from 'antd';
 import { getReviewsByBook, createReview, updateReview, deleteReview } from '~/services/reviewService';
 import useAuth from '~/hooks/useAuth';
+import { ROLES } from '~/constants';
+
+const { TextArea } = Input;
 
 const ReviewSection = ({ bookDefinitionId }) => {
     const { isAuthenticated, user } = useAuth();
@@ -9,6 +13,8 @@ const ReviewSection = ({ bookDefinitionId }) => {
     const [newReview, setNewReview] = useState({ comment: '', rating: 0 });
     const [editingReview, setEditingReview] = useState(null);
     const [messageApi, contextHolder] = message.useMessage();
+
+    const isAdmin = user?.roleNames?.includes(ROLES.ManageReview);
 
     const fetchReviews = useCallback(async () => {
         try {
@@ -32,8 +38,9 @@ const ReviewSection = ({ bookDefinitionId }) => {
             messageApi.success('Thêm bình luận thành công!');
             setNewReview({ comment: '', rating: 0 });
             fetchReviews();
-        } catch {
-            messageApi.error('Thêm bình luận thất bại.');
+        } catch (error) {
+            const errorMessage = error.response?.data?.message || 'Thêm bình luận thất bại.';
+            messageApi.error(errorMessage);
         }
     };
 
@@ -46,8 +53,9 @@ const ReviewSection = ({ bookDefinitionId }) => {
             messageApi.success('Cập nhật bình luận thành công!');
             setEditingReview(null);
             fetchReviews();
-        } catch {
-            messageApi.error('Cập nhật bình luận thất bại.');
+        } catch (error) {
+            const errorMessage = error.response?.data?.message || 'Cập nhật bình luận thất bại.';
+            messageApi.error(errorMessage);
         }
     };
 
@@ -56,14 +64,16 @@ const ReviewSection = ({ bookDefinitionId }) => {
             await deleteReview(reviewId);
             messageApi.success('Xóa bình luận thành công!');
             fetchReviews();
-        } catch {
-            messageApi.error('Xóa bình luận thất bại.');
+        } catch (error) {
+            const errorMessage = error.response?.data?.message || 'Xóa bình luận thất bại.';
+            messageApi.error(errorMessage);
         }
     };
 
     return (
-        <div>
+        <>
             {contextHolder}
+
             <h4>Bình luận & Đánh giá</h4>
 
             {isAuthenticated ? (
@@ -72,10 +82,11 @@ const ReviewSection = ({ bookDefinitionId }) => {
                         value={newReview.rating}
                         onChange={(value) => setNewReview({ ...newReview, rating: value })}
                     />
-                    <Input.TextArea
+                    <TextArea
                         value={newReview.comment}
                         onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
                         placeholder="Viết bình luận của bạn..."
+                        maxLength={500}
                     />
                     <Button type="primary" onClick={handleAddReview} className="mt-2">
                         Gửi bình luận
@@ -83,7 +94,7 @@ const ReviewSection = ({ bookDefinitionId }) => {
                 </div>
             ) : (
                 <p>
-                    Vui lòng <a href="/login">đăng nhập</a> để bình luận.
+                    Vui lòng <Link to="/login">đăng nhập</Link> để bình luận.
                 </p>
             )}
 
@@ -93,15 +104,15 @@ const ReviewSection = ({ bookDefinitionId }) => {
                 renderItem={(review) => (
                     <List.Item
                         actions={
-                            user?.id === review.readerId
+                            isAdmin || user?.cardNumber === review.reader.cardNumber
                                 ? [
                                       <Button
                                           type="link"
                                           onClick={() =>
                                               setEditingReview({
                                                   id: review.id,
-                                                  comment: review.comment,
                                                   rating: review.rating,
+                                                  comment: review.comment,
                                               })
                                           }
                                       >
@@ -120,14 +131,15 @@ const ReviewSection = ({ bookDefinitionId }) => {
                                     value={editingReview.rating}
                                     onChange={(value) => setEditingReview({ ...editingReview, rating: value })}
                                 />
-                                <Input.TextArea
+                                <TextArea
                                     value={editingReview.comment}
                                     onChange={(e) => setEditingReview({ ...editingReview, comment: e.target.value })}
+                                    maxLength={500}
                                 />
                                 <Button type="primary" onClick={handleUpdateReview} className="mt-2">
                                     Lưu
                                 </Button>
-                                <Button onClick={() => setEditingReview(null)} className="mt-2 ml-2">
+                                <Button onClick={() => setEditingReview(null)} className="mt-2 ms-2">
                                     Hủy
                                 </Button>
                             </div>
@@ -135,8 +147,8 @@ const ReviewSection = ({ bookDefinitionId }) => {
                             <List.Item.Meta
                                 title={
                                     <div>
-                                        <strong>{review.userName}</strong>
-                                        <Rate value={review.rating} disabled className="ml-2" />
+                                        <strong>{review.reader.fullName}</strong>
+                                        <Rate value={review.rating} disabled className="ms-2" />
                                     </div>
                                 }
                                 description={review.comment}
@@ -145,7 +157,7 @@ const ReviewSection = ({ bookDefinitionId }) => {
                     </List.Item>
                 )}
             />
-        </div>
+        </>
     );
 };
 

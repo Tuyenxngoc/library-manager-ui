@@ -39,3 +39,7 @@ export const adminForgotPassword = (values) => {
 export const adminChangePassword = (values) => {
     return axiosPrivate.patch('admin/auth/change-password', values);
 };
+
+export const getCurrentUserLogin = () => {
+    return axiosPrivate.get('auth/current');
+};
