@@ -34,8 +34,8 @@ const ReviewSection = ({ bookDefinitionId }) => {
     }, [fetchReviews]);
 
     const handleAddReview = async () => {
-        if (!newReview.comment.trim() || newReview.rating === 0) {
-            return messageApi.warning('Vui lòng nhập nội dung và đánh giá số sao.');
+        if (newReview.rating === 0) {
+            return messageApi.warning('Vui lòng đánh giá số sao.');
         }
         try {
             await createReview({ bookDefinitionId, comment: newReview.comment, rating: newReview.rating });
@@ -49,8 +49,8 @@ const ReviewSection = ({ bookDefinitionId }) => {
     };
 
     const handleUpdateReview = async () => {
-        if (!editingReview.comment.trim() || editingReview.rating === 0) {
-            return messageApi.warning('Vui lòng nhập nội dung và đánh giá số sao.');
+        if (editingReview.rating === 0) {
+            return messageApi.warning('Vui lòng đánh giá số sao.');
         }
         try {
             await updateReview(editingReview.id, { comment: editingReview.comment, rating: editingReview.rating });
