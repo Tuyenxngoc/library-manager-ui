@@ -91,6 +91,7 @@ const ReviewSection = ({ bookDefinitionId }) => {
                         onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
                         placeholder="Viết bình luận của bạn..."
                         maxLength={500}
+                        showCount
                     />
                     <Button type="primary" onClick={handleAddReview} className="mt-2">
                         Gửi bình luận
@@ -139,6 +140,7 @@ const ReviewSection = ({ bookDefinitionId }) => {
                                     value={editingReview.comment}
                                     onChange={(e) => setEditingReview({ ...editingReview, comment: e.target.value })}
                                     maxLength={500}
+                                    showCount
                                 />
                                 <Button type="primary" onClick={handleUpdateReview} className="mt-2">
                                     Lưu
