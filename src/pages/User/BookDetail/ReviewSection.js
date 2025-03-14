@@ -4,6 +4,10 @@ import { List, Input, Button, message, Rate } from 'antd';
 import { getReviewsByBook, createReview, updateReview, deleteReview } from '~/services/reviewService';
 import useAuth from '~/hooks/useAuth';
 import { ROLES } from '~/constants';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
 
 const { TextArea } = Input;
 
@@ -149,6 +153,9 @@ const ReviewSection = ({ bookDefinitionId }) => {
                                     <div>
                                         <strong>{review.reader.fullName}</strong>
                                         <Rate value={review.rating} disabled className="ms-2" />
+                                        <span className="text-gray-500 ms-2">
+                                            {dayjs(review.lastModifiedDate).fromNow()}
+                                        </span>
                                     </div>
                                 }
                                 description={review.comment}
