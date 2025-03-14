@@ -109,7 +109,7 @@ const ReviewSection = ({ bookDefinitionId }) => {
                 renderItem={(review) => (
                     <List.Item
                         actions={
-                            isAdmin || user?.cardNumber === review.reader.cardNumber
+                            user?.cardNumber === review.reader.cardNumber
                                 ? [
                                       <Button
                                           type="link"
@@ -123,6 +123,12 @@ const ReviewSection = ({ bookDefinitionId }) => {
                                       >
                                           Sửa
                                       </Button>,
+                                      <Button type="link" danger onClick={() => handleDeleteReview(review.id)}>
+                                          Xóa
+                                      </Button>,
+                                  ]
+                                : isAdmin
+                                ? [
                                       <Button type="link" danger onClick={() => handleDeleteReview(review.id)}>
                                           Xóa
                                       </Button>,
