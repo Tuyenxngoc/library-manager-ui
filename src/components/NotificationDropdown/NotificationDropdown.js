@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Dropdown, Badge, Spin } from 'antd';
+import { Client } from '@stomp/stompjs';
 import { FaBell } from 'react-icons/fa';
 import { getNotifications, deleteNotification, markNotificationAsRead } from '~/services/notificationService';
 import Notification from '~/components/Notification';
+import { ACCESS_TOKEN } from '~/constants';
 
 function NotificationDropdown() {
     const [notifications, setNotifications] = useState([]);
@@ -42,6 +44,33 @@ function NotificationDropdown() {
         };
 
         fetchNotifications();
+    }, []);
+
+    useEffect(() => {
+        const token = localStorage.getItem(ACCESS_TOKEN);
+        const wsUrl = `ws://localhost:8080/ws/websocket?token=${token}`;
+
+        const client = new Client({
+            brokerURL: wsUrl,
+            reconnectDelay: 5000,
+            forceBinaryWSFrames: true,
+            appendMissingNULLonIncoming: true,
+            onConnect: () => {
+                console.log('✅ Connected to WebSocket via STOMP');
+                client.subscribe('/topic/public', (message) => {
+                    setNotifications((prev) => [...prev, message.body]);
+                });
+            },
+            onDisconnect: () => {
+                console.log('❌ Disconnected from WebSocket');
+            },
+        });
+
+        client.activate();
+
+        return () => {
+            client.deactivate();
+        };
     }, []);
 
     const notificationItems = loading
